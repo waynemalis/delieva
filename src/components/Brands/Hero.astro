@@ -3,12 +3,8 @@ import { motion } from "motion/react";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
-import { Image, getImage } from "astro:assets";
+import { getImage } from "astro:assets";
 import tornPaperSvg from "../../assets/tornPaper.svg";
-import nutsImg from "../../assets/products/nuts.png";
-import chipsBImg from "../../assets/products/chipsB.png";
-import chipsAImg from "../../assets/products/chipsA.png";
-import chipsImg from "../../assets/products/chips.png";
 
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
@@ -32,15 +28,15 @@ const tornPaper = await getImage({ src: tornPaperSvg });
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
         >
-            <Image
-              src={nutsImg}
-              alt=""
-              class="absolute bottom-0 left-0 translate-y-1/2 md:-translate-y-[65px] h-45 md:h-95 rotate-10 pointer-events-none"
+            <img
+                src="/products/nuts.png"
+                alt=""
+                class="absolute bottom-0 left-0 translate-y-1/2 md:-translate-y-[65px] h-45 md:h-95 rotate-10 pointer-events-none"
             />
-            <Image
-              src={chipsBImg}
-              alt=""
-              class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 -translate-x-[20vw] h-50 md:h-105 rotate-10 pointer-events-none"
+            <img
+                src="/products/chipsB.png"
+                alt=""
+                class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 -translate-x-[20vw] h-50 md:h-105 rotate-10 pointer-events-none"
             />
         </motion.div>
     </div>
@@ -52,15 +48,15 @@ const tornPaper = await getImage({ src: tornPaperSvg });
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1.5, delay: 0.4 }}
         >
-            <Image
-              src={chipsAImg}
-              alt=""
-              class="absolute bottom-0 left-0 translate-y-1/2 md:translate-y-[65px] translate-x-[16vw] h-50 md:h-105 -rotate-10 pointer-events-none"
+            <img
+                src="/products/chipsA.png"
+                alt=""
+                class="absolute bottom-0 left-0 translate-y-1/2 md:translate-y-[65px] translate-x-[16vw] h-50 md:h-105 -rotate-10 pointer-events-none"
             />
-            <Image
-              src={chipsImg}
-              alt=""
-              class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 h-50 md:h-105 -rotate-10 pointer-events-none"
+            <img
+                src="/products/chips.png"
+                alt=""
+                class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 h-50 md:h-105 -rotate-10 pointer-events-none"
             />
         </motion.div>
     </div>
