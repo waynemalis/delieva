@@ -24,7 +24,7 @@ const translateLabels = useTranslations(currentLang as keyof typeof languageList
         <Image src={tornPaper} alt="" class="absolute left-0 top-0 -translate-y-2/5 w-full pointer-events-none z-1" />
         <div class="flex flex-row justify-between items-center w-full h-full">
             <a href={getRelativeLocaleUrl(currentLang, "/")}>
-                <Image src={delievaLogo} alt="Delieva Logo" width={Math.round(delievaLogo.width * (40 / delievaLogo.height))} height={40}/>
+                <Image src={delievaLogo} alt="Delieva Logo" width={100} height={Math.round(delievaLogo.height * (100 / delievaLogo.width))}/>
             </a>
             <a href="#hero" class="group/btn w-auto px-3 py-3 bg-[#AED42E] items-center justify-between text-black font-google-sans-flex font-medium rounded-lg hover:text-white hover:bg-[#2BB95D] transition-colors flex space-x-2 cursor-pointer relative z-10">
                 <span>{translateLabels("footer.return")}</span>
