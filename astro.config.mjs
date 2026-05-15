@@ -7,6 +7,9 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://TU-USUARIO.github.io',
+  base: '/delieva',  // nombre exacto de tu repositorio
+  
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
