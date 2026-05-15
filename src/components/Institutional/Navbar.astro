@@ -1,0 +1,281 @@
+---
+import { motion } from "motion/react"
+---
+
+<motion.nav client:load 
+        className="flex justify-between items-center px-4 md:px-16 lg:px-24 xl:px-32 py-3.5 border-b border-slate-200/20 w-full relative z-60"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        >
+        <a href="#">
+            <svg width="157" height="40" viewBox="0 0 157 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M47.904 28.28q-1.54 0-2.744-.644a5.1 5.1 0 0 1-1.904-1.82q-.672-1.148-.672-2.604v-3.864q0-1.456.7-2.604a4.9 4.9 0 0 1 1.904-1.792q1.204-.672 2.716-.672 1.82 0 3.276.952a6.44 6.44 0 0 1 2.324 2.52q.868 1.567.868 3.556 0 1.96-.868 3.556a6.5 6.5 0 0 1-2.324 2.492q-1.455.924-3.276.924m-7.196 5.32V14.56h3.08v3.612l-.532 3.276.532 3.248V33.6zm6.692-8.232q1.12 0 1.96-.504a3.6 3.6 0 0 0 1.344-1.456q.504-.924.504-2.128t-.504-2.128a3.43 3.43 0 0 0-1.344-1.428q-.84-.532-1.96-.532t-1.988.532a3.43 3.43 0 0 0-1.344 1.428q-.476.924-.476 2.128.001 1.204.476 2.128a3.6 3.6 0 0 0 1.344 1.456q.868.504 1.988.504M56.95 28V14.56h3.08V28zm3.08-7.476-1.064-.532q0-2.548 1.12-4.116 1.148-1.596 3.444-1.596 1.008 0 1.82.364.812.365 1.512 1.176l-2.016 2.072a2.1 2.1 0 0 0-.812-.56 3 3 0 0 0-1.036-.168q-1.287 0-2.128.812-.84.811-.84 2.548m14.156 7.756q-2.016 0-3.64-.896a7 7 0 0 1-2.548-2.52q-.924-1.596-.924-3.584t.924-3.556a6.87 6.87 0 0 1 2.492-2.52q1.596-.924 3.528-.924 1.876 0 3.304.868a6.05 6.05 0 0 1 2.268 2.38q.84 1.512.84 3.444 0 .336-.056.7a7 7 0 0 1-.112.756H69.23v-2.52h9.436l-1.148 1.008q-.056-1.232-.476-2.072a3 3 0 0 0-1.204-1.288q-.756-.448-1.876-.448-1.176 0-2.044.504a3.43 3.43 0 0 0-1.344 1.428q-.476.896-.476 2.156t.504 2.212 1.428 1.484q.924.504 2.128.504 1.037 0 1.904-.364a4 4 0 0 0 1.512-1.064l1.96 1.988a6.3 6.3 0 0 1-2.38 1.736 7.6 7.6 0 0 1-2.968.588m15.91 0q-1.54 0-2.745-.644a5.1 5.1 0 0 1-1.904-1.82q-.672-1.148-.672-2.604v-3.864q0-1.456.7-2.604a4.9 4.9 0 0 1 1.904-1.792q1.204-.672 2.716-.672 1.821 0 3.276.952a6.44 6.44 0 0 1 2.324 2.52q.869 1.567.868 3.556 0 1.96-.868 3.556a6.5 6.5 0 0 1-2.324 2.492q-1.455.924-3.276.924M82.898 28V7.84h3.08v10.024l-.532 3.248.532 3.276V28zm6.692-2.632q1.12 0 1.96-.504a3.6 3.6 0 0 0 1.344-1.456q.504-.924.504-2.128t-.504-2.128a3.43 3.43 0 0 0-1.344-1.428q-.84-.532-1.96-.532t-1.988.532a3.43 3.43 0 0 0-1.344 1.428q-.476.924-.476 2.128.001 1.204.476 2.128a3.6 3.6 0 0 0 1.344 1.456q.87.504 1.988.504m15.067 2.912q-1.708 0-3.052-.756a5.5 5.5 0 0 1-2.072-2.072q-.728-1.344-.728-3.08V14.56h3.08v7.672q0 .98.308 1.68.336.672.952 1.036.644.364 1.512.364 1.344 0 2.044-.784.728-.812.728-2.296V14.56h3.08v7.812q0 1.764-.756 3.108a5.3 5.3 0 0 1-2.044 2.072q-1.317.728-3.052.728m8.976-.28V14.56h3.08V28zm1.54-15.904q-.783 0-1.316-.532-.504-.532-.504-1.316t.504-1.316a1.8 1.8 0 0 1 1.316-.532q.813 0 1.316.532t.504 1.316q0 .784-.504 1.316t-1.316.532M120.169 28V7.84h3.08V28zm8.552 0V8.96h3.08V28zm-3.22-10.64v-2.8h9.52v2.8zm17.274 10.92q-1.708 0-3.052-.756a5.5 5.5 0 0 1-2.072-2.072q-.728-1.344-.728-3.08V14.56h3.08v7.672q0 .98.308 1.68.336.672.952 1.036.643.364 1.512.364 1.344 0 2.044-.784.728-.812.728-2.296V14.56h3.08v7.812q0 1.764-.756 3.108a5.3 5.3 0 0 1-2.044 2.072q-1.317.728-3.052.728m8.977-.28V14.56h3.08V28zm1.54-15.904q-.785 0-1.316-.532-.504-.532-.504-1.316t.504-1.316a1.8 1.8 0 0 1 1.316-.532q.812 0 1.316.532t.504 1.316-.504 1.316-1.316.532" fill="#fff"/>
+                <path d="m8.75 11.3 6.75 3.884 6.75-3.885M8.75 34.58v-7.755L2 22.939m27 0-6.75 3.885v7.754M2.405 15.408 15.5 22.954l13.095-7.546M15.5 38V22.939M29 28.915V16.962a2.98 2.98 0 0 0-1.5-2.585L17 8.4a3.01 3.01 0 0 0-3 0L3.5 14.377A3 3 0 0 0 2 16.962v11.953A2.98 2.98 0 0 0 3.5 31.5L14 37.477a3.01 3.01 0 0 0 3 0L27.5 31.5a3 3 0 0 0 1.5-2.585" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="#" class="text-white hover:text-gray-300 transition">Inicio</a>
+            
+            <div class="relative">
+                <!-- ✅ CORRECCIÓN: Se eliminó onclick="toggleDesktopDropdown()"
+                     En Astro, los scripts NO exponen funciones al window global,
+                     por eso el onclick inline nunca encontraba la función. -->
+                <button 
+                    class="text-white hover:text-gray-300 transition flex items-center space-x-1" 
+                    id="desktop-quienes-somos"
+                >
+                    <span>Quienes somos</span>
+                    <svg class="w-4 h-4 transition-transform duration-200" id="desktop-quienes-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <a href="#" class="text-white hover:text-gray-300 transition">Nuestras marcas</a>
+            <a href="#" class="text-white hover:text-gray-300 transition">Recursos</a>
+        </div>
+        
+        <!-- Desktop Right Side -->
+        <div class="hidden md:flex items-center space-x-4">
+            <button class="bg-white text-slate-800 hover:bg-gray-300 px-6 md:px-8 py-2.5 rounded-full font-medium transition">
+                Contacto
+            </button>
+            
+            <div class="flex items-center space-x-2">
+                <span class="text-white">|</span>
+                <div class="relative">
+                    <button class="text-white hover:text-gray-300 transition flex items-center space-x-1" id="desktop-language">
+                        <span>ES</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" id="desktop-language-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="absolute top-full right-0 mt-2 w-24 bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 z-50" id="desktop-language-dropdown">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition">ES</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition">EN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-white" id="mobile-menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </motion.nav>
+
+    <!-- ✅ CORRECCIÓN: Sin clase "hidden", solo style display:none -->
+    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 9999; display: none;" id="desktop-quienes-dropdown">
+        <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
+                <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-800">Quienes somos</h3>
+                    <!-- ✅ CORRECCIÓN: Se eliminó onclick, ahora usa addEventListener -->
+                    <button class="text-gray-400 hover:text-gray-600 transition" id="desktop-quienes-close">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="space-y-2">
+                    <a href="#" class="block px-6 py-4 text-gray-800 hover:bg-gray-100 rounded-lg transition">Sobre nosotros</a>
+                    <a href="#" class="block px-6 py-4 text-gray-800 hover:bg-gray-100 rounded-lg transition">Nuestra historia</a>
+                    <a href="#" class="block px-6 py-4 text-gray-800 hover:bg-gray-100 rounded-lg transition">Valores de marca</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden fixed inset-0 bg-black/95 z-40 hidden" id="mobile-menu">
+        <div class="flex flex-col p-6 pt-24">
+            <div class="border border-white/20 rounded-lg overflow-hidden">
+                <a href="#" class="block w-full text-white hover:text-gray-300 transition py-4 px-4 text-xl font-medium bg-white/5">Inicio</a>
+            </div>
+            
+            <div class="my-4"></div>
+            
+            <div class="border border-white/20 rounded-lg overflow-hidden">
+                <button class="w-full text-white hover:text-gray-300 transition py-4 px-4 text-xl font-medium flex items-center justify-center bg-white/5" id="mobile-quienes-somos">
+                    <span class="mr-3">Quienes somos</span>
+                    <svg class="w-5 h-5 transition-transform duration-200" id="mobile-quienes-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                
+                <div class="bg-black/30 overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0" id="mobile-quienes-dropdown">
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-white/10 transition py-3 px-6 text-lg">Sobre nosotros</a>
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-white/10 transition py-3 px-6 text-lg">Nuestra historia</a>
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-white/10 transition py-3 px-6 text-lg">Valores de marca</a>
+                </div>
+            </div>
+            
+            <div class="my-4"></div>
+            
+            <div class="border border-white/20 rounded-lg overflow-hidden">
+                <a href="#" class="block w-full text-white hover:text-gray-300 transition py-4 px-4 text-xl font-medium bg-white/5">Nuestras marcas</a>
+            </div>
+            
+            <div class="my-4"></div>
+            
+            <div class="border border-white/20 rounded-lg overflow-hidden">
+                <a href="#" class="block w-full text-white hover:text-gray-300 transition py-4 px-4 text-xl font-medium bg-white/5">Recursos</a>
+            </div>
+            
+            <div class="my-6"></div>
+            
+            <button class="bg-white text-slate-800 hover:bg-gray-300 px-8 py-3 rounded-full font-medium transition w-full text-lg">
+                Contacto
+            </button>
+            
+            <div class="my-6"></div>
+            
+            <div class="flex items-center justify-center">
+                <div class="border border-white/20 rounded-lg overflow-hidden">
+                    <button class="flex items-center space-x-3 text-white hover:text-gray-300 transition py-3 px-6 text-lg font-medium bg-white/5" id="mobile-language">
+                        <span>ES</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" id="mobile-language-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    
+                    <div class="bg-black/30 border-t border-white/20 overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0" id="mobile-language-dropdown">
+                        <a href="#" class="block text-gray-300 hover:text-white hover:bg-white/10 transition py-2 px-6 text-base">ES</a>
+                        <a href="#" class="block text-gray-300 hover:text-white hover:bg-white/10 transition py-2 px-6 text-base">EN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Close Button -->
+        <button class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition" id="mobile-menu-close">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        // ✅ CORRECCIÓN PRINCIPAL: Todo usa addEventListener dentro de DOMContentLoaded.
+        // En Astro los scripts de componentes NO exponen funciones al scope global window,
+        // por lo que onclick="funcion()" en HTML nunca funciona. La solución es
+        // registrar todos los eventos con addEventListener aquí.
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- DESKTOP: Quienes somos ---
+            const desktopQuienesTrigger = document.getElementById('desktop-quienes-somos');
+            const desktopQuienesClose   = document.getElementById('desktop-quienes-close');
+            const desktopQuienesDropdown = document.getElementById('desktop-quienes-dropdown');
+            const desktopQuienesArrow   = document.getElementById('desktop-quienes-arrow');
+
+            function openDesktopDropdown() {
+                if (!desktopQuienesDropdown) return;
+                desktopQuienesDropdown.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                if (desktopQuienesArrow) desktopQuienesArrow.style.transform = 'rotate(180deg)';
+            }
+
+            function closeDesktopDropdown() {
+                if (!desktopQuienesDropdown) return;
+                desktopQuienesDropdown.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                if (desktopQuienesArrow) desktopQuienesArrow.style.transform = 'rotate(0deg)';
+            }
+
+            if (desktopQuienesTrigger) desktopQuienesTrigger.addEventListener('click', openDesktopDropdown);
+            if (desktopQuienesClose)   desktopQuienesClose.addEventListener('click', closeDesktopDropdown);
+
+            // Cerrar al hacer click en el backdrop oscuro
+            if (desktopQuienesDropdown) {
+                desktopQuienesDropdown.addEventListener('click', function(e) {
+                    if (e.target === desktopQuienesDropdown) closeDesktopDropdown();
+                });
+            }
+
+            // --- DESKTOP: Language dropdown ---
+            const desktopLanguage         = document.getElementById('desktop-language');
+            const desktopLanguageDropdown = document.getElementById('desktop-language-dropdown');
+            const desktopLanguageArrow    = document.getElementById('desktop-language-arrow');
+
+            if (desktopLanguage && desktopLanguageDropdown) {
+                desktopLanguage.addEventListener('click', function() {
+                    const isHidden = desktopLanguageDropdown.classList.contains('max-h-0');
+                    if (isHidden) {
+                        desktopLanguageDropdown.classList.remove('max-h-0', 'opacity-0');
+                        desktopLanguageDropdown.classList.add('max-h-32', 'opacity-100');
+                        if (desktopLanguageArrow) desktopLanguageArrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        desktopLanguageDropdown.classList.remove('max-h-32', 'opacity-100');
+                        desktopLanguageDropdown.classList.add('max-h-0', 'opacity-0');
+                        if (desktopLanguageArrow) desktopLanguageArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
+
+            // --- MOBILE: Menu abrir/cerrar ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu       = document.getElementById('mobile-menu');
+            const mobileMenuClose  = document.getElementById('mobile-menu-close');
+
+            function openMobileMenu() {
+                if (mobileMenu) { mobileMenu.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+            }
+            function closeMobileMenu() {
+                if (mobileMenu) { mobileMenu.classList.add('hidden'); document.body.style.overflow = 'auto'; }
+            }
+
+            if (mobileMenuButton) mobileMenuButton.addEventListener('click', openMobileMenu);
+            if (mobileMenuClose)  mobileMenuClose.addEventListener('click', closeMobileMenu);
+            if (mobileMenu) {
+                mobileMenu.addEventListener('click', function(e) {
+                    if (e.target === mobileMenu) closeMobileMenu();
+                });
+            }
+
+            // --- MOBILE: Quienes somos dropdown ---
+            const mobileQuienesSomos    = document.getElementById('mobile-quienes-somos');
+            const mobileQuienesDropdown = document.getElementById('mobile-quienes-dropdown');
+            const mobileQuienesArrow    = document.getElementById('mobile-quienes-arrow');
+
+            if (mobileQuienesSomos && mobileQuienesDropdown) {
+                mobileQuienesSomos.addEventListener('click', function() {
+                    const isHidden = mobileQuienesDropdown.classList.contains('max-h-0');
+                    if (isHidden) {
+                        mobileQuienesDropdown.classList.remove('max-h-0', 'opacity-0');
+                        mobileQuienesDropdown.classList.add('max-h-96', 'opacity-100');
+                        if (mobileQuienesArrow) mobileQuienesArrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        mobileQuienesDropdown.classList.remove('max-h-96', 'opacity-100');
+                        mobileQuienesDropdown.classList.add('max-h-0', 'opacity-0');
+                        if (mobileQuienesArrow) mobileQuienesArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
+
+            // --- MOBILE: Language dropdown ---
+            const mobileLanguage         = document.getElementById('mobile-language');
+            const mobileLanguageDropdown = document.getElementById('mobile-language-dropdown');
+            const mobileLanguageArrow    = document.getElementById('mobile-language-arrow');
+
+            if (mobileLanguage && mobileLanguageDropdown) {
+                mobileLanguage.addEventListener('click', function() {
+                    const isHidden = mobileLanguageDropdown.classList.contains('max-h-0');
+                    if (isHidden) {
+                        mobileLanguageDropdown.classList.remove('max-h-0', 'opacity-0');
+                        mobileLanguageDropdown.classList.add('max-h-32', 'opacity-100');
+                        if (mobileLanguageArrow) mobileLanguageArrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        mobileLanguageDropdown.classList.remove('max-h-32', 'opacity-100');
+                        mobileLanguageDropdown.classList.add('max-h-0', 'opacity-0');
+                        if (mobileLanguageArrow) mobileLanguageArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
+
+        });
+    </script>

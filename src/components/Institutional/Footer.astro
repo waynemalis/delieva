@@ -1,0 +1,72 @@
+---
+import { motion } from "motion/react";
+import { ArrowUp, Copyright, MapPin, PhoneIncoming, Mail, Instagram, Facebook, Heart } from "lucide-astro";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../../i18n/utils";
+import { languageList } from "../../i18n/ui";
+import { span } from "motion/react-m";
+const currentLang = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(
+  currentLang as keyof typeof languageList
+);
+---
+
+<motion.section client:load
+    className="flex flex-col w-full mt-20 font-google-sans-flex bg-[#0C4242]"
+    initial={{ opacity: 0, y: 150 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    id="impact"
+>
+    <div class="flex flex-col gap-6 px-4 text-[14px] md:text-[16px] md:px-32 py-8">
+        <div class="flex flex-row justify-between items-center w-full h-full">
+            <a href={getRelativeLocaleUrl(currentLang, "/")}>
+                <img src="https://ff456b3a66.cbaul-cdnwnd.com/8f682d027808632abfeb7e44e1febb52/200000032-318a7318a9/450/deliEva.webp?ph=ff456b3a66" alt="Delieva Logo" width="100" height="40" />
+            </a>
+            <a href="#hero" class="group/btn w-auto px-3 py-3 bg-[#AED42E] items-center justify-between text-black font-google-sans-flex font-medium rounded-lg hover:text-white hover:bg-[#2BB95D] transition-colors flex space-x-2 cursor-pointer relative z-10">
+                <span>{translateLabels("footer.return")}</span>
+                <ArrowUp class="transition-transform duration-300 group-hover/btn:-translate-y-1" size={20} />    
+            </a>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
+            <a class="flex flex-row items-start gap-2 bg-[#CDDC3980]/50 p-6 rounded-lg" href="https://www.google.com/maps?ll=28.291852,-105.45587&z=17&t=m&hl=es-419&gl=MX&mapclient=embed&cid=3681020787920902826">
+                <MapPin size={20} class="text-[#AED42E]"/>
+                <div class="flex flex-col">
+                    <span class="text-[#AED42E]">Botanas Delieva</span>
+                    <span class="text-white">Calle Angelina N°113 C.P.33130 Las Puentes, Chih, Mex.</span>
+                </div>
+            </a>
+            <div class="flex flex-col self-center justify-end gap-2 bg-transparent md:bg-[#CDDC3980]/20 p-6 rounded-lg">
+                <a id="email" href="mailto:admondelieva@gmail.com" class="flex flex-row gap-2 text-white"><Mail size={20} class="text-[#AED42E]"/> admondelieva@gmail.com</a>
+                <a id="email" href="mailto:gelysotoornelas@gmail.com" class="flex flex-row gap-2 text-white"><Mail size={20} class="text-[#AED42E]"/> gelysotoornelas@gmail.com</a>
+                <a href="tel:+526391151801" class="flex flex-row gap-2 text-white"><PhoneIncoming size={20} class="text-[#AED42E]"/> +52 639 115 1801</a>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0 border-t border-white/20 pt-6">
+            <div class="flex flex-col md:flex-row items-center gap-6 text-white">
+                <div id="copyright" class="flex flex-row items-center gap-2"><Copyright size={14} /> {new Date().getFullYear()} Delieva. {translateLabels("footer.rights")}</div>
+                <a class="group flex flex-row items-center gap-2 relative" href="/privacy">
+                    <span>{translateLabels("footer.privacy")}</span>
+                    <div class="absolute w-full md:w-0 h-0.5 bg-[#AED42E] bottom-0 left-0 transition-all duration-300 group-hover:w-full"></div>
+                </a>
+                <a class="group flex flex-row items-center gap-2 relative" href="/terms">
+                    <span>{translateLabels("footer.terms")}</span>
+                    <div class="absolute w-full md:w-0 h-0.5 bg-[#AED42E] bottom-0 left-0 transition-all duration-300 group-hover:w-full"></div>
+                </a>
+                <a class="group flex flex-row items-center gap-2 relative" href="/cookies">
+                    <span>{translateLabels("footer.policy")}</span>
+                    <div class="absolute w-full md:w-0 h-0.5 bg-[#AED42E] bottom-0 left-0 transition-all duration-300 group-hover:w-full"></div>
+                </a>
+            </div>
+            <div class="flex flex-row gap-4 text-white">
+                <a class="flex flex-row items-center" href="https://www.instagram.com/botanasdelieva/" target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
+                <a class="flex flex-row items-center" href="https://www.facebook.com/BotanasDelievaMenudeoYMayoreo" target="_blank" rel="noopener noreferrer"><Facebook size={20} /></a>
+            </div>
+        </div>
+    </div>
+    <div class="flex items-center justify-center bg-black/80 text-white px-4 md:px-32 py-4 z-20 gap-1">
+        developed with <Heart size={18} class="text-pink-400" /> by <a href="https://www.instagram.com/thevkastudio/" target="_blank" rel="noopener noreferrer" class="text-[#AED42E] hover:underline">The VKA Studio</a>
+    </div>
+</motion.section>

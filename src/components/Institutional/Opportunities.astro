@@ -1,0 +1,61 @@
+---
+
+import { motion } from "motion/react";
+import { ArrowRight, Forward } from "lucide-astro";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { useTranslations } from "../../i18n/utils";
+
+import { languageList } from "../../i18n/ui";
+
+const currentLang = Astro.currentLocale || "es";
+
+
+
+const translateLabels = useTranslations(
+
+  currentLang as keyof typeof languageList
+);
+
+---
+
+<section class="relative">
+  <motion.div client:load
+    className="flex flex-col w-full h-auto items-center justify-center"
+    id="opportunities" 
+    initial={{ y: 150, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+    transition={{ duration: 0.6 }}
+  >
+    <div class="relative group flex flex-col md:flex-row w-full md:w-2/3 gap-16 items-center justify-between mt-16 mb-16 p-6 md:p-8 rounded-xl overflow-hidden">
+      <div class="absolute hidden md:flex inset-0 w-full h-full bg-[url('/src/assets/opportunities.png')] bg-cover bg-center md:mask-l-from-0 md:mask-l-to-80%"></div>
+      <div class="absolute flex md:hidden inset-0 w-full h-full bg-[url('/src/assets/opportunities.png')] bg-cover bg-center mask-t-from-0 mask-t-to-60%"></div>
+      <div class="flex flex-col items-center gap-8 justify-center w-full md:w-[45%] h-auto md:h-[500px] p-0 md:px-8 z-10">
+        <p class="md:text-left self-center md:self-start text-5xl title-institutional">
+          {translateLabels("who.opportunities")}
+        </p>
+        <p class="text-center md:text-left text-[18px] whitespace-pre-line leading-relaxed">
+          {translateLabels("opportunities.content")}
+        </p>
+      </div>
+      <div class="flex flex-col items-center justify-center w-full md:w-[40%] h-[95%] p-8 bg-white rounded-xl border border-neutral-200 z-10">
+        <p class="text-[#003B24] text-4xl title-institutional mb-6">
+          {translateLabels("nav.contact")}
+        </p>
+        <form id="contact-form" action="https://splitforms.com/api/submit" method="POST" class="flex flex-col gap-2 w-full">
+          <input type="hidden" name="access_key" value="1192444575ed41a5ac79b94c34b747f6">
+          <input type="text" placeholder={translateLabels("contact.name")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
+          <input type="email" placeholder={translateLabels("contact.email")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
+          <input type="tel" placeholder={translateLabels("contact.phone")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
+          <textarea placeholder={translateLabels("contact.message")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] invalid:border-red-300 focus:ring-0" required></textarea>
+          <button type="submit" class="group/btn w-full mt-8 px-6 py-3 bg-[#CDDC3980] items-center justify-center text-black font-google-sans-flex font-medium rounded-lg hover:text-white hover:bg-[#2BB95D] transition-colors flex space-x-2 cursor-pointer relative z-10">
+            <span>{translateLabels("opportunities.contact")}</span>
+            <Forward class="transition-transform duration-300 group-hover/btn:translate-x-1" size={20} />    
+          </button>
+        </form>
+      </div>
+    </div>
+  </motion.div>
+</section>

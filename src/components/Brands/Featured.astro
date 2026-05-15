@@ -1,0 +1,80 @@
+---
+
+import { motion } from "motion/react";
+
+
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { useTranslations } from "../../i18n/utils";
+
+import { languageList } from "../../i18n/ui";
+
+import { getCollection } from "astro:content";
+
+
+
+const currentLang = Astro.currentLocale || "es";
+
+
+
+const translateLabels = useTranslations(
+
+  currentLang as keyof typeof languageList
+
+);
+
+
+
+const allProducts = await getCollection('products');
+
+const featuredProducts = allProducts.filter((product: any) => product.data.featured && product.data.locale === currentLang);
+
+---
+
+
+
+<motion.section
+
+  className="flex flex-col items-center gap-8"
+
+  id="featured"
+
+>
+    <span class="text-4xl text-[#062121] mt-8 md:mt-24 darumadrop">{translateLabels("brands.featured")}</span>
+    <div class="grid grid-cols-1 md:grid-cols-2 auto-rows-auto w-full md:w-2/3 gap-8 mb-16 p-4">
+        {featuredProducts.map((product: any, index: number) => {
+            const colors = ['#AED42E', '#AED42E', '#FF8728'];
+            const bgColors = ['#E6ED9C', '#E6ED9C', '#FEF08A'];
+            const color = colors[index % colors.length];
+            const bgColor = bgColors[index % bgColors.length];
+            const isLastAndOdd = index === featuredProducts.length - 1 && featuredProducts.length % 2 !== 0;
+
+            return (
+                <div id={product.data.id || product.data.title.toLowerCase().replace(/\s+/g, '-')} class={`group rounded-lg h-74 ${isLastAndOdd ? 'md:col-span-2' : ''} relative overflow-hidden`} style={`background-color: ${color}`}>
+                    <div class={`absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-120 h-120 rounded-full pointer-events-none z-10 group-hover:scale-150 transition-transform duration-300`} style={`background-color: ${bgColor}`}></div>
+                    {product.data.image && (
+                        <img src={product.data.image} alt={product.data.title} class="absolute top-0 right-0 h-full w-auto object-contain z-15" />
+                    )}
+                    <div class="absolute bottom-4 left-4 z-25">
+                        {product.data.weight && (
+                            <div class="flex gap-2 flex-wrap">
+                                {Object.entries(product.data.weight).map(([key, value]: [string, any]) => (
+                                    <span class="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">
+                                        {value}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                    <div class="p-8 relative z-20 flex flex-col md:flex-row md:w-2/3 items-center gap-6">
+                        <div class="flex-1">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-4 darumadrop">{product.data.title}</h2>
+                            <p class="text-gray-600">{product.data.description}</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        })}
+    </div>
+</motion.section>

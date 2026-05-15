@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SquareArrowOutUpRight, ChevronDown, Languages } from "lucide-astro";
+import "../styles/global.css";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../i18n/utils";
+import { languageList } from "../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(
+  currentLang as keyof typeof languageList
+);
+---
+
+
+
+<Layout>
+	<div class="relative flex w-full h-full overflow-hidden">
+        <img class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-99 rotate-90 md:rotate-0" src="/src/assets/tornPaper.webp" alt="">
+	<img class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-100" src="https://ff456b3a66.cbaul-cdnwnd.com/8f682d027808632abfeb7e44e1febb52/200000032-318a7318a9/450/deliEva.webp?ph=ff456b3a66" alt="Delieva Logo" width="200" height="auto" />
+	<div class="w-full h-dvh flex flex-col md:flex-row text-center text-sm darumadrop">
+		<a href={getRelativeLocaleUrl(currentLang, "/institucional")} class="overflow-hidden flex items-center justify-center w-full h-full relative bg-[url('/src/assets/hero.png')] bg-cover bg-center group">
+			<div class="absolute inset-0 opacity-100 group-hover:opacity-60 transition-opacity duration-300">
+				<div class="absolute inset-0 bg-gradient-to-t from-[#91b126] to-black/60"></div>
+			</div>
+			<div class="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+				<div class="absolute inset-0 bg-gradient-to-t from-[#91b126]/60 to-black/0"></div>
+			</div>
+			<span class="relative text-white text-4xl font-medium p-4 z-10 transition-transform duration-300 group-hover:scale-110 capitalize">{translateLabels("main.company")}</span>
+		</a>
+		<a href={getRelativeLocaleUrl(currentLang, "/brands")} class="overflow-hidden flex items-center justify-center w-full h-full relative bg-[url('https://ff456b3a66.cbaul-cdnwnd.com/8f682d027808632abfeb7e44e1febb52/200000126-e492fe4931/IMG_3234-Edit.webp')] bg-cover bg-center group">
+			<div class="absolute inset-0 opacity-100 group-hover:opacity-60 transition-opacity duration-300">
+				<div class="absolute inset-0 bg-gradient-to-t from-yellow-700/80 to-black/60"></div>
+			</div>
+			<div class="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+				<div class="absolute inset-0 bg-gradient-to-t from-yellow-700/60 to-black/0"></div>
+			</div>
+			<span class="relative text-white text-4xl font-medium p-4 z-10 transition-transform duration-300 group-hover:scale-110 capitalize">{translateLabels("main.products")}</span>
+		</a>
+	</div>
+
+	<div class="fixed bottom-4 right-4 flex items-center space-x-1 bg-white px-0.5 py-0.5 text-slate-800 rounded-full border border-gray-200 z-50">
+            <button id="language-btn" class="flex items-center space-x-1 px-3 py-2 rounded-full font-medium hover:bg-[#CDDC3980] cursor-pointer transition">
+                <Languages size={18} color="#24944B" />
+                <span class="uppercase">{currentLang}</span>
+                <ChevronDown size={18} />
+                <div class="absolute bottom-full right-0 mb-1 w-24 bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 z-50" id="desktop-language-dropdown">
+                    {
+                        Object.entries(languageList).map(
+                        ([key, label]: [string, string]) => {
+                            return (
+                            <a href={getRelativeLocaleUrl(key, "/")} class="flex items-center justify-center space-x-2 py-2 text-gray-800 hover:bg-gray-200 transition">
+                                <img src={`/src/assets/flags/${key}.svg`} alt={label} class="w-5 h-5">
+                                <span class="text-sm font-medium uppercase">{key}</span>
+                            </a>
+                            );
+                        }
+                        )
+                    }
+                </div>
+            </button>
+        </div>
+    </div>
+</Layout>
+
+<script>
+    const languageBtn = document.getElementById('language-btn');
+    const languageDropdown = document.getElementById('desktop-language-dropdown');
+    
+    languageBtn?.addEventListener('click', () => {
+        if (!languageDropdown) return;
+        
+        const isOpen = languageDropdown.style.maxHeight && languageDropdown.style.maxHeight !== '0px';
+        
+        if (isOpen) {
+            languageDropdown.style.maxHeight = '0px';
+            languageDropdown.style.opacity = '0';
+        } else {
+            languageDropdown.style.maxHeight = '200px';
+            languageDropdown.style.opacity = '1';
+        }
+    });
+</script>
+

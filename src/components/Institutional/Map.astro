@@ -1,0 +1,41 @@
+---
+import { motion } from "motion/react";
+import { Truck } from "lucide-astro";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../../i18n/utils";
+import { languageList } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(
+  currentLang as keyof typeof languageList
+);
+---
+
+<motion.section client:load
+    className="flex flex-col items-center justify-between w-full h-auto lg:px-35 font-google-sans-flex overflow-hidden"
+    initial={{ opacity: 0, x: -150 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+    transition={{ duration: 0.6 }}
+    id="map"
+>
+    <div class="flex flex-col items-center text-center gap-6 relative p-8 md:p-0">
+        <p class="text-5xl font-medium text-center relative z-10 title-institutional">
+            {translateLabels("who.location")}
+         </p>
+        <p class="text-center text-[18px] w-full md:w-3/4 font-google-sans-flex whitespace-pre-line leading-relaxed">{translateLabels("location.content")}</p>
+        <div class="flex flex-wrap font-medium text-[16px] capitalize text-[#2BB95D] items-center justify-center px-4 py-2 rounded-full border border-[#2BB95D] relative z-10">
+            <Truck className="w-5 h-5 mr-2" />
+            <p>{translateLabels("location.ornament")}</p>
+        </div>
+    </div>
+    <div class="group relative w-[90%] md:w-[650px] h-[380px] flex items-center justify-center hover:-rotate-4 transition-transform duration-300">
+        <div class="absolute w-full h-[300px] rounded-lg bg-white shadow-lg border-1 border-neutral-200 z-[-1] group-hover:rotate-8 transition-transform duration-300"></div>
+        <div class="absolute w-full h-[300px] rounded-lg shadow-lg rotate-4 border-1 border-neutral-200 group-hover:scale-105 transition-transform duration-300">
+            <img src="/src/assets/clip.webp" alt="" class="absolute top-0 translate-y-2 right-0 translate-x-1/3 w-30 h-auto object-cover z-[-1] rotate-45" />
+            <img src="/src/assets/clipTop.webp" alt="" class="absolute top-0 translate-y-2 right-0 translate-x-1/3 w-30 h-auto object-cover z-1 rotate-45 drop-shadow-xl" />
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1915.5930266952744!2d-105.45666361635192!3d28.291868110788265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86eb13a44ef13a0b%3A0x33159ce75ada9aaa!2sBotanas%20Delieva%C2%AE!5e0!3m2!1ses-419!2smx!4v1778046446432!5m2!1ses-419!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</motion.section>

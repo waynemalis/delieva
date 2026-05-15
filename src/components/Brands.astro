@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+
+import Navbar from './Brands/Navbar.astro';
+import Hero from './Brands/Hero.astro';
+import BrandsList from './Brands/BrandsList.astro';
+import Featured from './Brands/Featured.astro';
+import Quality from './Brands/Quality.astro';
+import Catalog from './Brands/Catalog.astro';
+import Logistics from './Brands/Logistics.astro';
+import Map from './Brands/Map.astro';
+import Footer from './Brands/Footer.astro';
+
+---
+
+<Layout>
+  <div class="bg-white min-h-screen">
+    <Navbar />
+    <Hero />
+    <BrandsList />
+    <Featured />
+    <Catalog />
+    <Quality />
+    <Logistics />
+    <Map />
+    <Footer />
+  </div>
+</Layout>
+
+<script>
+  // bg-[#062121]
+</script>

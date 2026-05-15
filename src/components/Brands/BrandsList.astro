@@ -1,0 +1,68 @@
+---
+import { motion } from "motion/react";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../../i18n/utils";
+import { languageList } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(
+  currentLang as keyof typeof languageList
+);
+---
+
+<motion.section
+    className="flex flex-col items-center"
+>
+    <span class="text-4xl text-[#062121] mt-16 darumadrop">{translateLabels("nav.brands")}</span>
+    <div id="embla-brands" class="w-full mt-12 items-center justify-center overflow-hidden darumadrop">
+        <ul class="flex gap-8 w-full text-center text-[18px] whitespace-pre-line leading-relaxed z-10 select-none cursor-grab active:cursor-grabbing">
+            <li class="relative min-w-[150px] md:min-w-[300px] h-[180px] gap-6 bg-white px-4 py-8 rounded-lg">
+                <a href="#chips" class="group flex flex-col items-center justify-center h-full gap-4">
+                    <img class="h-auto group-hover:scale-110 transition-transform duration-300" src="/src/assets/brands/chips_camote.png" alt="" />
+                </a>
+            </li>
+            <li class="relative min-w-[150px] md:min-w-[300px] h-[180px] gap-6 bg-white px-4 py-8 rounded-lg">
+                <a href="#hot-nuts" class="group flex flex-col items-center justify-center h-full gap-4">
+                    <img class="h-auto group-hover:scale-110 transition-transform duration-300" src="/src/assets/brands/hot_nuts.png" alt="" />
+                </a>
+            </li>
+            <li class="relative min-w-[150px] md:min-w-[300px] h-[180px] gap-6 bg-white px-4 py-8 rounded-lg">
+                <a href="#nuts" class="group flex flex-col items-center justify-center h-full gap-4">
+                    <img class="h-auto group-hover:scale-110 transition-transform duration-300" src="/src/assets/brands/nuts.png" alt="" />
+                </a>
+            </li>
+            <li class="relative min-w-[150px] md:min-w-[300px] h-[180px] gap-6 bg-white px-4 py-8 rounded-lg">
+                <a href="#pipitorias" class="group flex flex-col items-center justify-center h-full gap-4">
+                    <img class="h-auto group-hover:scale-110 transition-transform duration-300" src="/src/assets/brands/pipitoria_palanqueta.png" alt="" />
+                </a>
+            </li>
+            <li class="relative min-w-[150px] md:min-w-[300px] h-[180px] gap-6 bg-white px-4 py-8 rounded-lg">
+                <a href="#popcorn" class="group flex flex-col items-center justify-center h-full gap-4">
+                    <img class="h-auto group-hover:scale-110 transition-transform duration-300" src="/src/assets/brands/popcorn.png" alt="" />
+                </a>
+            </li>
+            <li class="relative min-w-[150px] md:min-w-[300px] h-[180px] gap-6 bg-white px-4 py-8 rounded-lg">
+                <a href="#hot-rainbow" class="group flex flex-col items-center justify-center h-full gap-4">
+                    <img class="h-auto group-hover:scale-110 transition-transform duration-300" src="/src/assets/brands/Raindow_nuts.png" alt="" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</motion.section>
+
+<script>
+    import EmblaCarousel from 'embla-carousel';
+    import Autoplay from 'embla-carousel-autoplay';
+
+    const emblaNode = document.querySelector('#embla-brands') as HTMLElement;
+    if (emblaNode) {
+        EmblaCarousel(emblaNode, {
+            loop: true,
+            align: 'center',
+            dragFree: false,
+            containScroll: false, // ← importante: false para que el padding funcione
+            slidesToScroll: 1,
+        }, [Autoplay({ delay: 2500, playOnInit: true, stopOnInteraction: false })]);
+    }
+</script>

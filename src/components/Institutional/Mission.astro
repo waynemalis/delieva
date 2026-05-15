@@ -1,0 +1,71 @@
+---
+import { motion } from "motion/react";
+import { CircleArrowDown, HeartHandshake, ThumbsUp, HouseHeart, Lightbulb, Handshake } from "lucide-astro";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../../i18n/utils";
+import { languageList } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(
+  currentLang as keyof typeof languageList
+);
+---
+
+<motion.section client:load
+    className="flex flex-col w-full h-auto px-4 lg:px-35 font-google-sans-flex"
+    initial={{ opacity: 0, y: 150 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    id="mission"
+>
+    <div class="flex flex-wrap w-full h-full">
+        <div class="group flex flex-1 items-center justify-center h-full py-8 md:py-16 bg-[#CDDC3980] rounded-lg relative overflow-hidden">
+            <div class="absolute w-full h-full pointer-events-none z-0 transition-transform duration-300">
+                <img src="/src/assets/doodle-background.svg" alt="Doodle Background" class="w-full h-full object-cover object-top group-hover:scale-101 transition-transform duration-300" style="filter: brightness(0) saturate(100%) invert(48%) sepia(87%) saturate(1516%) hue-rotate(84deg) brightness(96%) contrast(89%); opacity: 0.3;" />
+            </div>
+            <div class="flex flex-col items-center justify-center w-full">
+                <div class="flex flex-col items-center justify-center px-8 md:px-64">
+                    <h3 class="text-5xl font-medium mb-8 relative z-10 title-institutional">{translateLabels("mission.title")}</h3>
+                    <p class="text-center font-google-sans-flex text-[18px] whitespace-pre-line leading-relaxed z-10">
+                        {translateLabels("mission.content")}
+                    </p>
+                </div>
+                <CircleArrowDown class="mt-8 text-[#2BB95D]" size={32} />
+                <div class="flex flex-col items-center justify-center px-8 md:px-64">
+                    <h3 id="vision" class="text-5xl font-medium mb-8 mt-8 relative z-10 title-institutional">{translateLabels("vision.title")}</h3>
+                    <p class="text-center font-google-sans-flex text-[18px] whitespace-pre-line leading-relaxed z-10">
+                        {translateLabels("vision.content")}
+                    </p>
+                </div>
+                <CircleArrowDown class="mt-8 text-[#2BB95D]" size={32} />
+                <h3 id="values" class="text-5xl font-medium mb-8 mt-8 relative z-10 title-institutional">{translateLabels("values.title")}</h3>
+                <div id="embla" class="overflow-hidden w-full" style="padding: 0 calc(50vw - 250px)">
+                    <ul id="values-carousel" class="flex gap-8 w-full text-center font-google-sans-flex text-[18px] whitespace-pre-line leading-relaxed z-10 select-none cursor-grab active:cursor-grabbing">
+                        <li class="relative flex flex-col min-w-[70%] md:min-w-[500px] gap-6 bg-white/80 px-6 py-14 rounded-lg"><p class="font-medium italic text-[#FFA500] text-[25px] title-institutional"><ThumbsUp class="w-6 h-6 absolute top-8 left-1/2 -translate-x-1/2 text-[#FFA500]" /> {translateLabels("values.quality.title")}</p> {translateLabels("values.quality")}</li>
+                        <li class="relative flex flex-col min-w-[70%] md:min-w-[500px] gap-6 bg-white/80 px-6 py-14 rounded-lg"><p class="font-medium italic text-[#FF69B4] text-[25px] title-institutional"><HouseHeart class="w-6 h-6 absolute top-8 left-1/2 -translate-x-1/2 text-[#FF69B4]" /> {translateLabels("values.tradition.title")}</p> {translateLabels("values.tradition")}</li>
+                        <li class="relative flex flex-col min-w-[70%] md:min-w-[500px] gap-6 bg-white/80 px-6 py-14 rounded-lg"><p class="font-medium italic text-[#2BB95D] text-[25px] title-institutional"><Lightbulb class="w-6 h-6 absolute top-8 left-1/2 -translate-x-1/2 text-[#2BB95D]" /> {translateLabels("values.innovation.title")}</p> {translateLabels("values.innovation")}</li>
+                        <li class="relative flex flex-col min-w-[70%] md:min-w-[500px] gap-6 bg-white/80 px-6 py-14 rounded-lg"><p class="font-medium italic text-[#4169E1] text-[25px] title-institutional"><Handshake class="w-6 h-6 absolute top-8 left-1/2 -translate-x-1/2 text-[#4169E1]" /> {translateLabels("values.commitment.title")}</p> {translateLabels("values.commitment")}</li>
+                    </ul>
+                </div>
+                <HeartHandshake class="mt-8 text-[#2BB95D]" size={32} />
+            </div>
+        </div>
+    </div>
+</motion.section>
+
+<script>
+    import EmblaCarousel from 'embla-carousel';
+import Autoplay from 'embla-carousel-autoplay';
+
+    const emblaNode = document.querySelector('#embla') as HTMLElement;
+    if (emblaNode) {
+        EmblaCarousel(emblaNode, {
+            loop: false,
+            align: 'center',
+            dragFree: false,
+            containScroll: false, // ← importante: false para que el padding funcione
+            slidesToScroll: 1,
+        }, [Autoplay({ delay: 2500, playOnInit: true, stopOnInteraction: false })]);
+    }
+</script>

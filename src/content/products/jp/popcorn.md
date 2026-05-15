@@ -1,0 +1,17 @@
+---
+id: "popcorn"
+title: "Popcorn"
+description: "フレーバー：アドバダス、バター、スクール、フレイミンホット、チーズなど！"
+price: 25.00
+weight: {
+    "50g": "50g",
+    "100g": "100g",
+    "500g": "500g",
+}
+category: "Nuts"
+image: "/src/assets/products/popcorn.webp"
+featured: true
+locale: "jp"
+---
+
+Delieva's classic potato chips are made from selected regional potatoes, cut into thin slices and fried to perfection to achieve that characteristic crispy texture.

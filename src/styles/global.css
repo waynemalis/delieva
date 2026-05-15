@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import "tailwindcss";
+
+.title-institutional {
+    font-family: 'Google Sans Flex', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+.title-brands {
+    font-family: 'Google Sans Flex', sans-serif !important;
+}
+
+.font-google-sans-flex {
+    font-family: 'Google Sans Flex', sans-serif !important;
+}
+
+.font-neuton {
+    font-family: 'Neuton', serif !important;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.font-noto-sans-jp {
+    font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+.darumadrop {
+  font-family: "Darumadrop One", "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.gradientMask {
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}

@@ -1,0 +1,135 @@
+---
+
+import { motion } from "motion/react";
+
+import { Album, MessageCircle } from "lucide-astro";
+
+
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { useTranslations } from "../../i18n/utils";
+
+import { languageList } from "../../i18n/ui";
+
+const currentLang = Astro.currentLocale || "es";
+
+
+
+const translateLabels = useTranslations(
+
+  currentLang as keyof typeof languageList
+
+);
+
+---
+
+
+
+<motion.section client:load
+
+    className="flex flex-row items-center justify-center w-full p-4 h-auto mt-16 font-google-sans-flex"
+
+    initial={{ opacity: 0, y: 150 }}
+
+    whileInView={{ opacity: 1, y: 0 }}
+
+    transition={{ duration: 0.6 }}
+
+    id="logistics"
+
+>
+
+    <div class="flex flex-col self-center items-center justify-center w-full md:w-2/3 h-full bg-transparent md:bg-[#062121] rounded-xl overflow-hidden">
+
+        <div class="relative group grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0 flex-1">
+
+            <div class="relative group flex flex-1 items-center justify-center h-full p-4 md:p-8 rounded-lg md:rounded-none overflow-hidden bg-cyan-600">
+
+                <div class="absolute inset-0"></div>
+
+                <img src="/src/assets/doodle-background.svg" alt="Doodle Background" class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-101 transition-transform duration-300" style="filter: brightness(0) saturate(100%) invert(25%) sepia(89%) saturate(1575%) hue-rotate(206deg) brightness(120%) contrast(89%);" />
+
+                <div class="flex flex-col gap-16 items-center justify-center w-full md:w-2/3 h-full relative py-4 z-10">
+
+                    <p class="text-4xl font-medium italic text-center text-white relative z-10 darumadrop">
+
+                    {translateLabels("logistic.distributors")}
+
+                    </p>
+
+                    <p class="text-white text-center text-[16px] md:text-[18px] whitespace-pre-line leading-relaxed w-full z-10">
+
+                    {translateLabels("distributors.content")}
+
+                    </p>
+
+                    <div class="flex md:hidden items-center justify-center w-full">
+
+                        <a href="https://wa.me/526391151801" target="_blank" class="group/btn w-auto px-4 py-3 bg-white items-center justify-between text-black font-google-sans-flex font-medium hover:text-white hover:bg-[#19B51E] transition-colors flex space-x-2 cursor-pointer rounded-lg relative z-10">
+
+                            <span>Whatsapp Business</span>
+
+                            <MessageCircle class="transition-transform duration-300 group-hover/btn:translate-x-1" size={20} />    
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="relative group flex flex-1 items-center justify-center h-full p-4 md:p-8 rounded-lg md:rounded-none overflow-hidden bg-green-600">
+
+                <div class="absolute inset-0"></div>
+
+                <img src="/src/assets/doodle-background.svg" alt="Doodle Background" class="absolute inset-0 w-full h-full rotate-180 object-cover object-top group-hover:scale-101 transition-transform duration-300" style="filter: brightness(0) saturate(100%) invert(48%) sepia(87%) saturate(1516%) hue-rotate(84deg) brightness(96%) contrast(89%);" />
+
+                <div class="flex flex-col gap-16 items-center justify-center w-full md:w-2/3 h-full relative py-4 z-10">
+
+                    <p class="text-4xl font-medium italic text-center text-white relative z-10 darumadrop">
+
+                    {translateLabels("logistic.shipping")}
+
+                    </p>
+
+                    <p class="text-white text-center text-[16px] md:text-[18px] whitespace-pre-line leading-relaxed w-full z-10">
+
+                    {translateLabels("shipping.content")}
+
+                    </p>
+
+                    <div class="flex md:hidden items-center justify-center w-full">
+
+                        <a href="https://wa.me/526391151801" target="_blank" class="group/btn w-auto px-4 py-3 bg-white items-center justify-between text-black font-google-sans-flex font-medium hover:text-white hover:bg-[#19B51E] transition-colors flex space-x-2 cursor-pointer rounded-lg relative z-10">
+
+                            <span>Whatsapp Business</span>
+
+                            <MessageCircle class="transition-transform duration-300 group-hover/btn:translate-x-1" size={20} />    
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hidden md:flex items-center justify-center w-full p-6">
+
+            <a href="https://wa.me/526391151801" target="_blank" class="group/btn w-auto px-4 py-3 bg-[#AED42E] items-center justify-between text-black font-google-sans-flex font-medium hover:text-white hover:bg-[#19B51E] transition-colors flex space-x-2 cursor-pointer rounded-lg relative z-10">
+
+                <span>Whatsapp Business</span>
+
+                <MessageCircle class="transition-transform duration-300 group-hover/btn:translate-x-1" size={20} />    
+
+            </a>
+
+        </div>
+
+    </div>
+
+</motion.section>

@@ -1,0 +1,46 @@
+---
+
+import { motion } from "motion/react";
+import { ArrowRight } from "lucide-astro";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { useTranslations } from "../../i18n/utils";
+
+import { languageList } from "../../i18n/ui";
+
+const currentLang = Astro.currentLocale || "es";
+
+
+
+const translateLabels = useTranslations(
+
+  currentLang as keyof typeof languageList
+);
+
+---
+
+<section class="overflow-x-hidden">
+  <motion.div client:load
+    className="flex flex-col w-full h-auto mt-16 mb-16 md:mt-0 md:mb-0"
+    id="quality" 
+    initial={{ x: 150, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.6 }}
+  >
+    <div class="group flex flex-row w-full flex-wrap">
+      <div class="flex flex-col items-center justify-center min-h-[300px] p-8 md:p-16 w-full md:w-1/2 overflow-hidden order-2 md:order-1">
+        <div class="xl:w-3/4 relative">
+          <h3 class="text-5xl font-medium mb-8 text-center md:text-left self-center md:self-start relative z-10 darumadrop">{translateLabels("who.quality")}</h3>
+          <p class="text-center md:text-justify font-google-sans-flex text-[18px] whitespace-pre-line leading-relaxed w-full h-auto md:h-[280px] overflow-hidden relative z-10">
+            {translateLabels("quality.content")}
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col h-auto w-full md:w-1/2 p-10 overflow-hidden">
+        <img src="/src/assets/qualityV3.png" alt="Quality" class="w-full h-full object-cover rounded-lg group-hover:scale-101 transition-transform duration-300" />
+      </div>
+    </div>
+  </motion.div>
+</section>

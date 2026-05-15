@@ -1,0 +1,38 @@
+---
+import { motion } from "motion/react";
+import { CircleArrowDown, HeartHandshake } from "lucide-astro";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../../i18n/utils";
+import { languageList } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(
+  currentLang as keyof typeof languageList
+);
+---
+
+<motion.section client:load
+    className="flex flex-col w-full h-auto px-4 lg:px-35 font-google-sans-flex"
+    initial={{ opacity: 0, y: 150 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+    transition={{ duration: 0.6 }}
+    id="impact"
+>
+    <div class="flex flex-wrap w-full h-full">
+        <div class="relative group flex flex-1 items-center justify-center h-full p-8 md:p-16 bg-[#CDDC3980] rounded-xl overflow-hidden">
+           <div class="absolute inset-0 bg-[url('/src/assets/background.png')] bg-cover bg-center"></div>
+           <div class="absolute inset-0 bg-[#2e0e4b]"></div>
+           <img src="/src/assets/doodle-background.svg" alt="Doodle Background" class="absolute inset-0 w-full h-full rotate-180 object-cover object-top group-hover:scale-101 transition-transform duration-300" style="filter: brightness(0) saturate(100%) invert(48%) sepia(87%) saturate(1516%) hue-rotate(84deg) brightness(96%) contrast(89%);" />
+           <div class="flex flex-col gap-16 items-center justify-center w-full md:w-1/2 h-full relative py-4 md:py-16 z-10">
+            <p class="text-5xl font-medium text-center text-white relative z-10 title-institutional">
+              {translateLabels("who.impact")}
+            </p>
+            <p class="text-white text-center text-[18px] md:text-[22px] whitespace-pre-line leading-relaxed w-full z-10">
+              {translateLabels("impact.content")}
+            </p>
+           </div>
+        </div>
+    </div>
+</motion.section>
