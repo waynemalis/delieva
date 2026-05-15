@@ -1,23 +1,18 @@
 ---
-
 import { motion } from "motion/react";
 import { ArrowRight, Forward } from "lucide-astro";
-
 import { getRelativeLocaleUrl } from "astro:i18n";
-
 import { useTranslations } from "../../i18n/utils";
-
 import { languageList } from "../../i18n/ui";
+import { getImage } from "astro:assets";
+import opportunitiesPng from "../../assets/opportunities.png";
 
 const currentLang = Astro.currentLocale || "es";
-
-
-
 const translateLabels = useTranslations(
-
   currentLang as keyof typeof languageList
 );
 
+const opportunitiesImage = await getImage({ src: opportunitiesPng });
 ---
 
 <section class="relative">
@@ -30,8 +25,8 @@ const translateLabels = useTranslations(
     transition={{ duration: 0.6 }}
   >
     <div class="relative group flex flex-col md:flex-row w-full md:w-2/3 gap-16 items-center justify-between mt-16 mb-16 p-6 md:p-8 rounded-xl overflow-hidden">
-      <div class="absolute hidden md:flex inset-0 w-full h-full bg-[url('/src/assets/opportunities.png')] bg-cover bg-center md:mask-l-from-0 md:mask-l-to-80%"></div>
-      <div class="absolute flex md:hidden inset-0 w-full h-full bg-[url('/src/assets/opportunities.png')] bg-cover bg-center mask-t-from-0 mask-t-to-60%"></div>
+      <div class="absolute hidden md:flex inset-0 w-full h-full bg-cover bg-center md:mask-l-from-0 md:mask-l-to-80%" style={`background-image: url('${opportunitiesImage.src}')`}></div>
+      <div class="absolute flex md:hidden inset-0 w-full h-full bg-cover bg-center mask-t-from-0 mask-t-to-60%" style={`background-image: url('${opportunitiesImage.src}')`}></div>
       <div class="flex flex-col items-center gap-8 justify-center w-full md:w-[45%] h-auto md:h-[500px] p-0 md:px-8 z-10">
         <p class="md:text-left self-center md:self-start text-5xl title-institutional">
           {translateLabels("who.opportunities")}

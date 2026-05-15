@@ -1,15 +1,18 @@
 ---
 import { motion } from "motion/react";
 import { CircleArrowDown, HeartHandshake, ThumbsUp, HouseHeart, Lightbulb, Handshake } from "lucide-astro";
-
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
-const currentLang = Astro.currentLocale || "es";
+import { getImage } from "astro:assets";
+import doodleSvg from "../../assets/doodle-background.svg";
 
+const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
   currentLang as keyof typeof languageList
 );
+
+const doodleImage = await getImage({ src: doodleSvg });
 ---
 
 <motion.section client:load
@@ -22,7 +25,12 @@ const translateLabels = useTranslations(
     <div class="flex flex-wrap w-full h-full">
         <div class="group flex flex-1 items-center justify-center h-full py-8 md:py-16 bg-[#CDDC3980] rounded-lg relative overflow-hidden">
             <div class="absolute w-full h-full pointer-events-none z-0 transition-transform duration-300">
-                <img src="/src/assets/doodle-background.svg" alt="Doodle Background" class="w-full h-full object-cover object-top group-hover:scale-101 transition-transform duration-300" style="filter: brightness(0) saturate(100%) invert(48%) sepia(87%) saturate(1516%) hue-rotate(84deg) brightness(96%) contrast(89%); opacity: 0.3;" />
+                <img
+                  src={doodleImage.src}
+                  alt="Doodle Background"
+                  class="w-full h-full object-cover object-top group-hover:scale-101 transition-transform duration-300"
+                  style="filter: brightness(0) saturate(100%) invert(48%) sepia(87%) saturate(1516%) hue-rotate(84deg) brightness(96%) contrast(89%); opacity: 0.3;"
+                />
             </div>
             <div class="flex flex-col items-center justify-center w-full">
                 <div class="flex flex-col items-center justify-center px-8 md:px-64">
@@ -56,7 +64,7 @@ const translateLabels = useTranslations(
 
 <script>
     import EmblaCarousel from 'embla-carousel';
-import Autoplay from 'embla-carousel-autoplay';
+    import Autoplay from 'embla-carousel-autoplay';
 
     const emblaNode = document.querySelector('#embla') as HTMLElement;
     if (emblaNode) {
@@ -64,7 +72,7 @@ import Autoplay from 'embla-carousel-autoplay';
             loop: false,
             align: 'center',
             dragFree: false,
-            containScroll: false, // ← importante: false para que el padding funcione
+            containScroll: false,
             slidesToScroll: 1,
         }, [Autoplay({ delay: 2500, playOnInit: true, stopOnInteraction: false })]);
     }

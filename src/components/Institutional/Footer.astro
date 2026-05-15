@@ -1,13 +1,13 @@
 ---
 import { motion } from "motion/react";
 import { ArrowUp, Copyright, MapPin, PhoneIncoming, Mail, Instagram, Facebook, Heart } from "lucide-astro";
-
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
-import { span } from "motion/react-m";
-const currentLang = Astro.currentLocale || "es";
+import { Image } from "astro:assets";
+import delievaLogo from "../../assets/delieva.webp";
 
+const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
   currentLang as keyof typeof languageList
 );
@@ -23,7 +23,7 @@ const translateLabels = useTranslations(
     <div class="flex flex-col gap-6 px-4 text-[14px] md:text-[16px] md:px-32 py-8">
         <div class="flex flex-row justify-between items-center w-full h-full">
             <a href={getRelativeLocaleUrl(currentLang, "/")}>
-                <img src="https://ff456b3a66.cbaul-cdnwnd.com/8f682d027808632abfeb7e44e1febb52/200000032-318a7318a9/450/deliEva.webp?ph=ff456b3a66" alt="Delieva Logo" width="100" height="40" />
+                <Image src={delievaLogo} alt="Delieva Logo" width={100} height={40} />
             </a>
             <a href="#hero" class="group/btn w-auto px-3 py-3 bg-[#AED42E] items-center justify-between text-black font-google-sans-flex font-medium rounded-lg hover:text-white hover:bg-[#2BB95D] transition-colors flex space-x-2 cursor-pointer relative z-10">
                 <span>{translateLabels("footer.return")}</span>

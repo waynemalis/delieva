@@ -1,12 +1,22 @@
 ---
 import { motion } from "motion/react"
 import { ChevronDown, Languages, ArrowUpRight, Menu } from "lucide-astro";
-
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
-const currentLang = Astro.currentLocale || "es";
+import { Image } from "astro:assets";
+import delievaLogo from "../../assets/delieva.webp";
+import whatsappImg from "../../assets/whatsapp.png";
 
+// Importar todas las banderas dinámicamente
+const flagModules = import.meta.glob<{ default: ImageMetadata }>("../../assets/flags/*.svg", { eager: true });
+const flags: Record<string, ImageMetadata> = {};
+for (const [path, mod] of Object.entries(flagModules)) {
+  const key = path.replace("../../assets/flags/", "").replace(".svg", "");
+  flags[key] = mod.default;
+}
+
+const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
   currentLang as keyof typeof languageList
 );
@@ -21,7 +31,7 @@ const translateLabels = useTranslations(
 >
     <div id="navbar-main" class="flex items-center justify-center md:justify-between px-4 md:px-16 lg:px-24 xl:px-32 py-3.5 border-b border-transparent">
         <a href={getRelativeLocaleUrl(currentLang, "/")}>
-            <img src="https://ff456b3a66.cbaul-cdnwnd.com/8f682d027808632abfeb7e44e1febb52/200000032-318a7318a9/450/deliEva.webp?ph=ff456b3a66" alt="Delieva Logo" width="100" height="40" />
+            <Image src={delievaLogo} alt="Delieva Logo" width={100} height={40} />
         </a>
 
         <div id="nav-links" class="hidden md:flex items-center text-white font-medium space-x-8 absolute translate-x-52">
@@ -50,7 +60,7 @@ const translateLabels = useTranslations(
                         ([key, label]: [string, string]) => {
                             return (
                             <a href={getRelativeLocaleUrl(key, "/institucional")} class="flex items-center justify-center space-x-2 py-2 text-gray-800 hover:bg-gray-200 transition">
-                                <img src={`/src/assets/flags/${key}.svg`} alt={label} class="w-5 h-5">
+                                {flags[key] && <Image src={flags[key]} alt={label} width={20} height={20} class="w-5 h-5" />}
                                 <span class="text-sm font-medium uppercase">{key}</span>
                             </a>
                             );
@@ -171,7 +181,7 @@ const translateLabels = useTranslations(
                     ([key, label]: [string, string]) => {
                         return (
                         <a href={getRelativeLocaleUrl(key, "/institucional")} class="flex items-center justify-center space-x-2 py-2 text-gray-800 hover:bg-gray-200 transition">
-                            <img src={`/src/assets/flags/${key}.svg`} alt={label} class="w-5 h-5">
+                            {flags[key] && <Image src={flags[key]} alt={label} width={20} height={20} class="w-5 h-5" />}
                             <span class="text-sm font-medium uppercase">{key}</span>
                         </a>
                         );
@@ -185,7 +195,7 @@ const translateLabels = useTranslations(
 
 <div id="wa" class="group fixed bottom-4 right-4 z-49">
     <a href="https://wa.me/526391151801" target="_blank" class="flex items-center w-16 h-16 rounded-full">
-        <img src="/src/assets/whatsapp.png" alt="WhatsApp" class="drop-shadow group-hover:scale-110 transition-transform duration-300">
+        <Image src={whatsappImg} alt="WhatsApp" class="drop-shadow group-hover:scale-110 transition-transform duration-300" />
     </a>
 </div>
 
@@ -240,12 +250,9 @@ const translateLabels = useTranslations(
         nav?.classList.add('bg-white');
         dropdown?.classList.add('bg-white');
         icon?.classList.add('rotate-180');
-        
-        // Animación suave del dropdown
         dropdown?.classList.replace('opacity-0', 'opacity-100');
         dropdown?.classList.replace('pointer-events-none', 'pointer-events-auto');
         dropdown?.classList.replace('max-h-0', 'max-h-96');
-        
         navLinks.forEach(el => {
             el?.classList.replace('text-white', 'text-slate-800');
             el?.classList.replace('hover:text-gray-300', 'hover:text-[#24944B]');
@@ -258,14 +265,11 @@ const translateLabels = useTranslations(
         dropdown?.classList.replace('opacity-100', 'opacity-0');
         dropdown?.classList.replace('pointer-events-auto', 'pointer-events-none');
         dropdown?.classList.replace('max-h-96', 'max-h-0');
-        
-        // Solo restaurar a estado transparente si está en el tope
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop === 0) {
             links?.classList.replace('text-slate-800', 'text-white');
             mainNav?.classList.replace('border-gray-200', 'border-transparent');
             nav?.classList.remove('bg-white');
-            
             navLinks.forEach(el => {
                 el?.classList.replace('text-slate-800', 'text-white');
                 el?.classList.replace('hover:text-[#24944B]', 'hover:text-gray-300');
@@ -275,25 +279,20 @@ const translateLabels = useTranslations(
 
     function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
         if (scrollTop > 0 && !isScrolled) {
-            // Scroll hacia abajo - cambiar a fondo blanco
             isScrolled = true;
             nav?.classList.add('bg-white');
             links?.classList.replace('text-white', 'text-slate-800');
             mainNav?.classList.replace('border-transparent', 'border-gray-200');
-            
             navLinks.forEach(el => {
                 el?.classList.replace('text-white', 'text-slate-800');
                 el?.classList.replace('hover:text-gray-300', 'hover:text-[#24944B]');
             });
         } else if (scrollTop === 0 && isScrolled && !isOpen) {
-            // Volver al tope - restaurar fondo transparente
             isScrolled = false;
             nav?.classList.remove('bg-white');
             links?.classList.replace('text-slate-800', 'text-white');
             mainNav?.classList.replace('border-gray-200', 'border-transparent');
-            
             navLinks.forEach(el => {
                 el?.classList.replace('text-slate-800', 'text-white');
                 el?.classList.replace('hover:text-[#24944B]', 'hover:text-gray-300');
@@ -302,20 +301,14 @@ const translateLabels = useTranslations(
     }
 
     btn?.addEventListener('click', () => isOpen ? closeDropdown() : openDropdown());
-
-    // Agregar evento para cerrar dropdown al hacer clic en cualquier li de who-items
     whoItems?.addEventListener('click', (e) => {
         const target = e.target as HTMLElement;
-        if (target.closest('li')) {
-            closeDropdown();
-        }
+        if (target.closest('li')) closeDropdown();
     });
 
-    // Funcionalidad del dropdown de idioma
     function toggleLanguageDropdown(e: Event) {
         e.stopPropagation();
         isLanguageOpen = !isLanguageOpen;
-        
         if (isLanguageOpen) {
             languageDropdown?.classList.replace('max-h-0', 'max-h-32');
             languageDropdown?.classList.replace('opacity-0', 'opacity-100');
@@ -340,12 +333,10 @@ const translateLabels = useTranslations(
     }
 
     languageBtn?.addEventListener('click', toggleLanguageDropdown);
-
     document.addEventListener('click', (e) => {
         if (isOpen && !nav?.contains(e.target as Node)) closeDropdown();
         if (isLanguageOpen && !languageBtn?.contains(e.target as Node)) closeLanguageDropdown();
     });
-
     window.addEventListener('scroll', handleScroll);
 </script>
 
@@ -353,7 +344,6 @@ const translateLabels = useTranslations(
     const languageBtn2 = document.getElementById('language-btn2');
     const languageDropdown2 = document.getElementById('desktop-language-dropdown2');
     
-    // Inicializar el dropdown con estilos
     if (languageDropdown2) {
         languageDropdown2.style.maxHeight = '0px';
         languageDropdown2.style.opacity = '0';
@@ -363,9 +353,7 @@ const translateLabels = useTranslations(
     languageBtn2?.addEventListener('click', (e) => {
         e.stopPropagation();
         if (!languageDropdown2) return;
-        
         const isOpen = languageDropdown2.style.maxHeight && languageDropdown2.style.maxHeight !== '0px';
-        
         if (isOpen) {
             languageDropdown2.style.maxHeight = '0px';
             languageDropdown2.style.opacity = '0';
@@ -375,7 +363,6 @@ const translateLabels = useTranslations(
         }
     });
     
-    // Cerrar dropdown al hacer clic fuera
     document.addEventListener('click', (e) => {
         if (languageDropdown2 && !languageBtn2?.contains(e.target as Node)) {
             languageDropdown2.style.maxHeight = '0px';

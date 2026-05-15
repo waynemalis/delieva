@@ -1,18 +1,21 @@
 ---
 import { motion } from "motion/react";
-
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
-const currentLang = Astro.currentLocale || "es";
+import { getImage } from "astro:assets";
+import heroPng from "../../assets/hero.png";
 
+const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
   currentLang as keyof typeof languageList
 );
+
+const heroImage = await getImage({ src: heroPng });
 ---
 
 <section id="hero" class="flex flex-col items-center text-center text-sm font-google-sans-flex text-white max-md:px-2 pt-30 pb-20 md:pt-40 md:pb-40 relative">
-    <div class="absolute inset-0 bg-[url('/src/assets/hero.png')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${heroImage.src}')`}></div>
     <div class="absolute inset-0 bg-black/60"></div>
 
     <!-- <div class="flex flex-wrap items-center justify-center px-4 py-2 rounded-full border border-slate-400 relative z-10">
