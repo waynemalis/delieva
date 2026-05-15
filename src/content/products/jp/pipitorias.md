@@ -10,7 +10,7 @@ weight: {
     "bulk": "バルク",
 }
 category: "Papas"
-image: "/products/pipitorias.webp"
+image: "/delieva/products/pipitorias.webp"
 featured: true
 locale: "jp"
 ---

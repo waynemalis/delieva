@@ -15,7 +15,7 @@ weight: {
     "bulk": "bulk",
 }
 category: "Nuts"
-image: "/products/hot_nuts.webp"
+image: "/delieva/products/hot_nuts.webp"
 featured: true
 locale: "en"
 ---

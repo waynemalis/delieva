@@ -10,7 +10,7 @@ weight: {
     "bulk": "en gros",
 }
 category: "Papas"
-image: "/products/pipitorias.webp"
+image: "/delieva/products/pipitorias.webp"
 featured: true
 locale: "fr"
 ---

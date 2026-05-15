@@ -15,7 +15,7 @@ weight: {
     "bulk": "en gros",
 }
 category: "Nuts"
-image: "/products/nuts.png"
+image: "/delieva/products/nuts.png"
 featured: true
 locale: "fr"
 ---

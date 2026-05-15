@@ -10,7 +10,7 @@ weight: {
     "bulk": "bulk",
 }
 category: "Chips"
-image: "/products/chips.png"
+image: "/delieva/products/chips.png"
 featured: true
 locale: "en"
 ---

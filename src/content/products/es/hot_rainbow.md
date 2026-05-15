@@ -15,7 +15,7 @@ weight: {
     "bulk": "a granel",
 }
 category: "Papas"
-image: "/products/hot_rainbow.webp"
+image: "/delieva/products/hot_rainbow.webp"
 featured: true
 locale: "es"
 ---

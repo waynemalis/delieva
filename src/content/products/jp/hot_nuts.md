@@ -15,7 +15,7 @@ weight: {
     "bulk": "バルク",
 }
 category: "Nuts"
-image: "/products/hot_nuts.webp"
+image: "/delieva/products/hot_nuts.webp"
 featured: true
 locale: "jp"
 ---
