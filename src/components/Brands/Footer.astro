@@ -1,16 +1,15 @@
 ---
 import { motion } from "motion/react";
 import { ArrowUp, Copyright, MapPin, PhoneIncoming, Mail, Instagram, Facebook, Heart } from "lucide-astro";
-
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
-import { span } from "motion/react-m";
-const currentLang = Astro.currentLocale || "es";
+import { Image } from "astro:assets";
+import delievaLogo from "../../assets/delieva.webp";
+import tornPaper from "../../assets/tornPaperFooter.svg";
 
-const translateLabels = useTranslations(
-  currentLang as keyof typeof languageList
-);
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(currentLang as keyof typeof languageList);
 ---
 
 <motion.section client:load
@@ -22,10 +21,10 @@ const translateLabels = useTranslations(
     id="impact"
 >
     <div class="relative flex flex-col gap-6 px-4 text-[14px] md:text-[16px] md:px-32 py-8">
-        <img class="absolute left-0 top-0 -translate-y-2/5 w-full pointer-events-none z-1" src="/src/assets/tornPaperFooter.svg" alt="">
+        <Image src={tornPaper} alt="" class="absolute left-0 top-0 -translate-y-2/5 w-full pointer-events-none z-1" />
         <div class="flex flex-row justify-between items-center w-full h-full">
             <a href={getRelativeLocaleUrl(currentLang, "/")}>
-                <img src="https://ff456b3a66.cbaul-cdnwnd.com/8f682d027808632abfeb7e44e1febb52/200000032-318a7318a9/450/deliEva.webp?ph=ff456b3a66" alt="Delieva Logo" width="100" height="40" />
+                <Image src={delievaLogo} alt="Delieva Logo" width={Math.round(delievaLogo.width * (40 / delievaLogo.height))} height={40}/>
             </a>
             <a href="#hero" class="group/btn w-auto px-3 py-3 bg-[#AED42E] items-center justify-between text-black font-google-sans-flex font-medium rounded-lg hover:text-white hover:bg-[#2BB95D] transition-colors flex space-x-2 cursor-pointer relative z-10">
                 <span>{translateLabels("footer.return")}</span>
@@ -41,23 +40,23 @@ const translateLabels = useTranslations(
                 </div>
             </a>
             <div class="flex flex-col self-center justify-end gap-2 bg-transparent md:bg-[#CDDC3980]/20 p-6 rounded-lg">
-                <a id="email" href="mailto:admondelieva@gmail.com" class="flex flex-row gap-2 text-white"><Mail size={20} class="text-[#AED42E]"/> admondelieva@gmail.com</a>
-                <a id="email" href="mailto:gelysotoornelas@gmail.com" class="flex flex-row gap-2 text-white"><Mail size={20} class="text-[#AED42E]"/> gelysotoornelas@gmail.com</a>
+                <a href="mailto:admondelieva@gmail.com" class="flex flex-row gap-2 text-white"><Mail size={20} class="text-[#AED42E]"/> admondelieva@gmail.com</a>
+                <a href="mailto:gelysotoornelas@gmail.com" class="flex flex-row gap-2 text-white"><Mail size={20} class="text-[#AED42E]"/> gelysotoornelas@gmail.com</a>
                 <a href="tel:+526391151801" class="flex flex-row gap-2 text-white"><PhoneIncoming size={20} class="text-[#AED42E]"/> +52 639 115 1801</a>
             </div>
         </div>
         <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0 border-t border-white/20 pt-6">
             <div class="flex flex-col md:flex-row items-center gap-6 text-white">
-                <div id="copyright" class="flex flex-row items-center gap-2"><Copyright size={14} /> {new Date().getFullYear()} Delieva. {translateLabels("footer.rights")}</div>
-                <a class="group flex flex-row items-center gap-2 relative" href="/privacy">
+                <div class="flex flex-row items-center gap-2"><Copyright size={14} /> {new Date().getFullYear()} Delieva. {translateLabels("footer.rights")}</div>
+                <a class="group flex flex-row items-center gap-2 relative" href={getRelativeLocaleUrl(currentLang, "/privacy")}>
                     <span>{translateLabels("footer.privacy")}</span>
                     <div class="absolute w-full md:w-0 h-0.5 bg-[#AED42E] bottom-0 left-0 transition-all duration-300 group-hover:w-full"></div>
                 </a>
-                <a class="group flex flex-row items-center gap-2 relative" href="/terms">
+                <a class="group flex flex-row items-center gap-2 relative" href={getRelativeLocaleUrl(currentLang, "/terms")}>
                     <span>{translateLabels("footer.terms")}</span>
                     <div class="absolute w-full md:w-0 h-0.5 bg-[#AED42E] bottom-0 left-0 transition-all duration-300 group-hover:w-full"></div>
                 </a>
-                <a class="group flex flex-row items-center gap-2 relative" href="/cookies">
+                <a class="group flex flex-row items-center gap-2 relative" href={getRelativeLocaleUrl(currentLang, "/cookies")}>
                     <span>{translateLabels("footer.policy")}</span>
                     <div class="absolute w-full md:w-0 h-0.5 bg-[#AED42E] bottom-0 left-0 transition-all duration-300 group-hover:w-full"></div>
                 </a>
