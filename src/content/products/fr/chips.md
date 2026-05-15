@@ -10,7 +10,7 @@ weight: {
     "bulk": "en gros",
 }
 category: "Chips"
-image: "../../../assets/products/chips.png"
+image: "/products/chips.png"
 featured: true
 locale: "fr"
 ---

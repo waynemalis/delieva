@@ -15,7 +15,7 @@ weight: {
     "bulk": "a granel",
 }
 category: "Nuts"
-image: "../../../assets/products/nuts.png"
+image: "/products/nuts.png"
 featured: true
 locale: "es"
 ---

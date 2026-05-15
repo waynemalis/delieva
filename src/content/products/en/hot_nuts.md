@@ -15,7 +15,7 @@ weight: {
     "bulk": "bulk",
 }
 category: "Nuts"
-image: "../../../assets/products/hot_nuts.webp"
+image: "/products/hot_nuts.webp"
 featured: true
 locale: "en"
 ---

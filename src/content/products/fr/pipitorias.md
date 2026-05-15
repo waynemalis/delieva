@@ -10,7 +10,7 @@ weight: {
     "bulk": "en gros",
 }
 category: "Papas"
-image: "../../../assets/products/pipitorias.webp"
+image: "/products/pipitorias.webp"
 featured: true
 locale: "fr"
 ---
