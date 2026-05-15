@@ -29,10 +29,10 @@ const slides = [
 ---
 
 <motion.section className="flex flex-col items-center mb-16">
-    <div id="embla-brands" class="w-full items-center justify-center py-8 overflow-hidden">
+    <div id="embla-brands" class="w-full items-center justify-center p-8 overflow-hidden">
         <ul class="flex w-full z-10 select-none cursor-grab active:cursor-grabbing">
             {slides.map((slide, i) => (
-                <li class={`embla-slide min-w-[100vw] h-[140px] md:min-w-[300px] md:h-[200px] px-2 ${slide.opacity} scale-90 transition-all duration-300 rounded-lg`}>
+                <li class={`embla-slide min-w-[95vw] h-[140px] md:min-w-[300px] md:h-[200px] px-2 ${slide.opacity} scale-90 transition-all duration-300 rounded-lg`}>
                     <Image
                         src={slide.src}
                         alt=""

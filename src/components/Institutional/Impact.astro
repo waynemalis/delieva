@@ -6,6 +6,7 @@ import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
 import { getImage } from "astro:assets";
 import backgroundPng from "../../assets/background.png";
+import peoplePng from "../../assets/people.png";
 import doodleSvg from "../../assets/doodle-background.svg";
 
 const currentLang = Astro.currentLocale || "es";
@@ -16,6 +17,21 @@ const translateLabels = useTranslations(
 const backgroundImage = await getImage({ src: backgroundPng });
 const doodleImage = await getImage({ src: doodleSvg });
 ---
+
+<motion.section client:load
+    className="flex flex-col w-full h-[300px] md:h-[600px] px-4 lg:px-35 mb-16 font-google-sans-flex"
+    initial={{ opacity: 0, y: 150 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+    transition={{ duration: 0.6 }}
+    id="impact"
+>
+    <div class="flex flex-wrap w-full h-full">
+        <div class="relative group flex flex-1 items-center justify-center h-full p-8 md:p-16 bg-[#CDDC3980] rounded-xl overflow-hidden">
+           <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${peoplePng.src}')`}></div>
+        </div>
+    </div>
+</motion.section>
 
 <motion.section client:load
     className="flex flex-col w-full h-auto px-4 lg:px-35 font-google-sans-flex"
