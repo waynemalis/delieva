@@ -1,19 +1,30 @@
 ---
 import { motion } from "motion/react";
-
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
-const currentLang = Astro.currentLocale || "es";
+import { Image, getImage } from "astro:assets";
+import tornPaperSvg from "../../assets/tornPaper.svg";
+import nutsImg from "../../assets/products/nuts.png";
+import chipsBImg from "../../assets/products/chipsB.png";
+import chipsAImg from "../../assets/products/chipsA.png";
+import chipsImg from "../../assets/products/chips.png";
 
+const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
   currentLang as keyof typeof languageList
 );
+
+const tornPaper = await getImage({ src: tornPaperSvg });
 ---
 
 <section id="hero" class="flex flex-col items-center text-center text-sm text-white max-md:px-2 pt-30 pb-20 md:pt-40 md:pb-40 darumadrop relative pointer-events-none">
     <div class="absolute inset-0 bg-[#062121]"></div>
-    <img class="absolute bottom-0 translate-y-2/3 w-full pointer-events-none z-1" src="/src/assets/tornPaper.svg" alt="">
+    <img
+      class="absolute bottom-0 translate-y-2/3 w-full pointer-events-none z-1"
+      src={tornPaper.src}
+      alt=""
+    />
     <div class="absolute bottom-0 w-full h-full overflow-hidden">
         <motion.div client:load
             className="relative w-full h-full"
@@ -21,8 +32,16 @@ const translateLabels = useTranslations(
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
         >
-            <img class="absolute bottom-0 left-0 translate-y-1/2 md:-translate-y-[65px] h-45 md:h-95 rotate-10 pointer-events-none" src="/src/assets/products/nuts.png" alt="">
-            <img class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 -translate-x-[20vw] h-50 md:h-105 md:h-105 rotate-10 pointer-events-none" src="/src/assets/products/chipsB.png" alt="">
+            <Image
+              src={nutsImg}
+              alt=""
+              class="absolute bottom-0 left-0 translate-y-1/2 md:-translate-y-[65px] h-45 md:h-95 rotate-10 pointer-events-none"
+            />
+            <Image
+              src={chipsBImg}
+              alt=""
+              class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 -translate-x-[20vw] h-50 md:h-105 rotate-10 pointer-events-none"
+            />
         </motion.div>
     </div>
 
@@ -33,8 +52,16 @@ const translateLabels = useTranslations(
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1.5, delay: 0.4 }}
         >
-            <img class="absolute bottom-0 left-0 translate-y-1/2 md:translate-y-[65px] translate-x-[16vw] h-50 md:h-105 -rotate-10 pointer-events-none" src="/src/assets/products/chipsA.png" alt="">
-            <img class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 h-50 md:h-105 -rotate-10 pointer-events-none" src="/src/assets/products/chips.png" alt="">
+            <Image
+              src={chipsAImg}
+              alt=""
+              class="absolute bottom-0 left-0 translate-y-1/2 md:translate-y-[65px] translate-x-[16vw] h-50 md:h-105 -rotate-10 pointer-events-none"
+            />
+            <Image
+              src={chipsImg}
+              alt=""
+              class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 h-50 md:h-105 -rotate-10 pointer-events-none"
+            />
         </motion.div>
     </div>
 

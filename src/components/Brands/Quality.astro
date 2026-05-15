@@ -1,23 +1,16 @@
 ---
-
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-astro";
-
 import { getRelativeLocaleUrl } from "astro:i18n";
-
 import { useTranslations } from "../../i18n/utils";
-
 import { languageList } from "../../i18n/ui";
+import { Image } from "astro:assets";
+import qualityImg from "../../assets/qualityV3.png";
 
 const currentLang = Astro.currentLocale || "es";
-
-
-
 const translateLabels = useTranslations(
-
   currentLang as keyof typeof languageList
 );
-
 ---
 
 <section class="overflow-x-hidden">
@@ -39,7 +32,11 @@ const translateLabels = useTranslations(
       </div>
 
       <div class="flex flex-col h-auto w-full md:w-1/2 p-10 overflow-hidden">
-        <img src="/src/assets/qualityV3.png" alt="Quality" class="w-full h-full object-cover rounded-lg group-hover:scale-101 transition-transform duration-300" />
+        <Image
+          src={qualityImg}
+          alt="Quality"
+          class="w-full h-full object-cover rounded-lg group-hover:scale-101 transition-transform duration-300"
+        />
       </div>
     </div>
   </motion.div>
