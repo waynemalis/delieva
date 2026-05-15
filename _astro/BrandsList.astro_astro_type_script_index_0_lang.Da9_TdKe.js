@@ -1,0 +1,1 @@
+import{E as l,A as a}from"./embla-carousel-autoplay.esm.DbqMuwPS.js";const e=document.querySelector("#embla-brands");e&&l(e,{loop:!0,align:"center",dragFree:!1,containScroll:!1,slidesToScroll:1},[a({delay:2500,playOnInit:!0,stopOnInteraction:!1})]);
