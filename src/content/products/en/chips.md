@@ -10,7 +10,7 @@ weight: {
     "bulk": "bulk",
 }
 category: "Chips"
-image: "../../assets/products/chips.png"
+image: "../../../assets/products/chips.png"
 featured: true
 locale: "en"
 ---

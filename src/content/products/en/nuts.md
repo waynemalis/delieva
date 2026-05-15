@@ -14,7 +14,7 @@ weight: {
     "bulk": "bulk",
 }
 category: "Nuts"
-image: "../../assets/products/nuts.png"
+image: "../../../assets/products/nuts.png"
 featured: true
 locale: "en"
 ---
