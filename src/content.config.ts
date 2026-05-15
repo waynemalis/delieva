@@ -9,13 +9,13 @@ import { z } from 'astro/zod';
 
 const products = defineCollection({
   loader: glob({ base: './src/content/products', pattern: '**/*.md' }),
-  schema: ({ image }) => z.object({
+  schema: z.object({
     id: z.string().optional(),
     title: z.string(),
     description: z.string(),
     price: z.number(),
     category: z.string(),
-    image: image(),  // ← esto procesa la imagen
+    image: z.string(),  // en lugar de image()
     featured: z.boolean().default(false),
     locale: z.string().default('es'),
     weight: z.record(z.string(), z.string()).optional(),
