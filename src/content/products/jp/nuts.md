@@ -14,7 +14,7 @@ weight: {
     "bulk": "バルク",
 }
 category: "Nuts"
-image: "/src/assets/products/nuts.png"
+image: "../../assets/products/nuts.png"
 featured: true
 locale: "jp"
 ---

@@ -15,7 +15,7 @@ weight: {
     "bulk": "bulk",
 }
 category: "Papas"
-image: "/src/assets/products/hot_rainbow.webp"
+image: "../../assets/products/hot_rainbow.webp"
 featured: true
 locale: "en"
 ---

@@ -9,7 +9,7 @@ weight: {
     "500g": "500g",
 }
 category: "Nuts"
-image: "/src/assets/products/popcorn.webp"
+image: "../../assets/products/popcorn.webp"
 featured: true
 locale: "en"
 ---

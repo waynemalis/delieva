@@ -15,7 +15,7 @@ weight: {
     "bulk": "a granel",
 }
 category: "Nuts"
-image: "/src/assets/products/hot_nuts.webp"
+image: "../../assets/products/hot_nuts.webp"
 featured: true
 locale: "es"
 ---
