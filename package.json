@@ -21,6 +21,7 @@
     "astro-leaflet": "^1.11.0",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
+    "framer-motion": "^12.38.0",
     "leaflet": "^1.9.4",
     "lucide-astro": "^0.556.0",
     "motion": "^12.38.0",
