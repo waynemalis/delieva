@@ -1,5 +1,12 @@
 ---
-import { motion } from "motion/react"
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+import MotionNav from "../../components/motion/MotionNav";
+
 import { ChevronDown, Languages, ArrowUpRight, Menu } from "lucide-astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
@@ -21,7 +28,7 @@ const translateLabels = useTranslations(
 );
 ---
 
-<motion.nav client:load
+<MotionNav client:load
     className="fixed top-0 w-full z-50 transition-colors bg-[#AED42E] darumadrop"
     initial={{ opacity: 0, y: -50 }}
     animate={{ opacity: 1, y: 0 }}
@@ -106,7 +113,7 @@ const translateLabels = useTranslations(
             </ul>
         </div>
     </div>
-</motion.nav>
+</MotionNav>
 
 <div id="mobile-navbar" class="fixed flex w-full h-full bg-black/80 backdrop-blur-sm md:hidden z-99 opacity-0 pointer-events-none transition-opacity duration-300">
     <ul role="list" class="flex flex-col justify-center space-y-4 w-full p-6 text-lg font-medium">

@@ -1,5 +1,11 @@
 ---
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { ArrowUp, Copyright, MapPin, PhoneIncoming, Mail, Instagram, Facebook, Heart } from "lucide-astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
@@ -12,7 +18,7 @@ const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(currentLang as keyof typeof languageList);
 ---
 
-<motion.section client:load
+<MotionSection client:load
     className="flex flex-col w-full mt-20 font-google-sans-flex bg-[#0C4242]"
     initial={{ opacity: 0, y: 150 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -70,4 +76,4 @@ const translateLabels = useTranslations(currentLang as keyof typeof languageList
     <div class="flex items-center justify-center bg-black/80 text-white px-4 md:px-32 py-4 z-20 gap-1">
         developed with <Heart size={18} class="text-pink-400" /> by <a href="https://www.instagram.com/thevkastudio/" target="_blank" rel="noopener noreferrer" class="text-[#AED42E] hover:underline">The VKA Studio</a>
     </div>
-</motion.section>
+</MotionSection>

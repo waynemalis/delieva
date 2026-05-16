@@ -1,5 +1,11 @@
 ---
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { ArrowRight, Forward } from "lucide-astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
@@ -16,7 +22,7 @@ const opportunitiesImage = await getImage({ src: opportunitiesPng });
 ---
 
 <section class="relative">
-  <motion.div client:load
+  <MotionDiv client:load
     className="flex flex-col w-full h-auto items-center justify-center"
     id="opportunities" 
     initial={{ y: 150, opacity: 0 }}
@@ -52,5 +58,5 @@ const opportunitiesImage = await getImage({ src: opportunitiesPng });
         </form>
       </div>
     </div>
-  </motion.div>
+  </MotionDiv>
 </section>

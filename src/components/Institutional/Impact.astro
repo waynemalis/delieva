@@ -1,5 +1,11 @@
 ---
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { CircleArrowDown, HeartHandshake } from "lucide-astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
@@ -18,7 +24,7 @@ const backgroundImage = await getImage({ src: backgroundPng });
 const doodleImage = await getImage({ src: doodleSvg });
 ---
 
-<motion.section client:load
+<MotionSection client:load
     className="flex flex-col w-full h-[300px] md:h-[600px] px-4 lg:px-35 mb-16 font-google-sans-flex"
     initial={{ opacity: 0, y: 150 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -31,9 +37,9 @@ const doodleImage = await getImage({ src: doodleSvg });
            <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${peoplePng.src}')`}></div>
         </div>
     </div>
-</motion.section>
+</MotionSection>
 
-<motion.section client:load
+<MotionSection client:load
     className="flex flex-col w-full h-auto px-4 lg:px-35 font-google-sans-flex"
     initial={{ opacity: 0, y: 150 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -61,4 +67,4 @@ const doodleImage = await getImage({ src: doodleSvg });
            </div>
         </div>
     </div>
-</motion.section>
+</MotionSection>

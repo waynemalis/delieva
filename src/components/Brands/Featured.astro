@@ -1,8 +1,10 @@
 ---
-
-import { motion } from "framer-motion";
-
-
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
 
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -34,7 +36,7 @@ const featuredProducts = allProducts.filter((product: any) => product.data.featu
 
 
 
-<motion.section
+<MotionSection
 
   className="flex flex-col items-center gap-8"
 
@@ -77,4 +79,4 @@ const featuredProducts = allProducts.filter((product: any) => product.data.featu
             );
         })}
     </div>
-</motion.section>
+</MotionSection>

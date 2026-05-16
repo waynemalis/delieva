@@ -1,5 +1,11 @@
 ---
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
 import { Image } from "astro:assets";
@@ -37,7 +43,7 @@ const translateLabels = useTranslations(
     <div class="sticky top-0 h-[800px] overflow-hidden">
 
       <!-- IMAGEN: fullscreen → mitad izquierda -->
-      <motion.div
+      <MotionDiv
         client:load
         className="absolute overflow-hidden z-10"
         initial={{
@@ -67,11 +73,11 @@ const translateLabels = useTranslations(
           alt="Quality"
           class="w-full h-full object-cover rounded-lg"
         />
-      </motion.div>
+      </MotionDiv>
 
       <!-- TEXTO: mitad derecha -->
       <div class="absolute z-9 right-0 top-0 w-1/2 h-[800px] flex items-center justify-center">
-        <motion.div
+        <MotionDiv
           client:load
           className="xl:w-3/4 p-8 md:p-16"
           initial={{ opacity: 0, x: 50 }}
@@ -89,7 +95,7 @@ const translateLabels = useTranslations(
           <p class="text-justify font-google-sans-flex text-[18px] whitespace-pre-line leading-relaxed h-[280px] overflow-hidden text-neutral-700">
             {translateLabels("quality.content")}
           </p>
-        </motion.div>
+        </MotionDiv>
       </div>
 
     </div>

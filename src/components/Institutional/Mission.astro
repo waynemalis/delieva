@@ -1,5 +1,11 @@
 ---
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { CircleArrowDown, HeartHandshake, ThumbsUp, HouseHeart, Lightbulb, Handshake } from "lucide-astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
@@ -15,7 +21,7 @@ const translateLabels = useTranslations(
 const doodleImage = await getImage({ src: doodleSvg });
 ---
 
-<motion.section client:load
+<MotionSection client:load
     className="flex flex-col w-full h-auto px-4 lg:px-35 font-google-sans-flex"
     initial={{ opacity: 0, y: 150 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +66,7 @@ const doodleImage = await getImage({ src: doodleSvg });
             </div>
         </div>
     </div>
-</motion.section>
+</MotionSection>
 
 <script>
     import EmblaCarousel from 'embla-carousel';

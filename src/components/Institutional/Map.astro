@@ -1,5 +1,11 @@
 ---
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { Truck } from "lucide-astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
@@ -14,7 +20,7 @@ const translateLabels = useTranslations(
 );
 ---
 
-<motion.section client:load
+<MotionSection client:load
     className="flex flex-col items-center justify-between w-full h-auto lg:px-35 font-google-sans-flex overflow-hidden"
     initial={{ opacity: 0, x: -150 }}
     whileInView={{ opacity: 1, x: 0 }}
@@ -48,4 +54,4 @@ const translateLabels = useTranslations(
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1915.5930266952744!2d-105.45666361635192!3d28.291868110788265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86eb13a44ef13a0b%3A0x33159ce75ada9aaa!2sBotanas%20Delieva%C2%AE!5e0!3m2!1ses-419!2smx!4v1778046446432!5m2!1ses-419!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-</motion.section>
+</MotionSection>

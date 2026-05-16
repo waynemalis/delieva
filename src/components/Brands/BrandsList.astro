@@ -1,5 +1,11 @@
 ---
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
@@ -26,7 +32,7 @@ const slides = [
 ];
 ---
 
-<motion.section className="flex flex-col items-center">
+<MotionSection className="flex flex-col items-center">
     <span class="text-4xl text-[#062121] mt-16 darumadrop">{translateLabels("nav.brands")}</span>
     <div id="embla-brands" class="w-full mt-12 items-center justify-center overflow-hidden darumadrop">
         <ul class="flex gap-8 w-full text-center text-[18px] whitespace-pre-line leading-relaxed z-10 select-none cursor-grab active:cursor-grabbing">
@@ -43,7 +49,7 @@ const slides = [
             ))}
         </ul>
     </div>
-</motion.section>
+</MotionSection>
 
 <script>
     import EmblaCarousel from 'embla-carousel';

@@ -1,5 +1,11 @@
 ---
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
@@ -22,7 +28,7 @@ const tornPaper = await getImage({ src: tornPaperSvg });
       alt=""
     />
     <div class="absolute bottom-0 w-full h-full overflow-hidden">
-        <motion.div client:load
+        <MotionDiv client:load
             className="relative w-full h-full"
             initial={{ opacity: 0, y: 30, scale: 1.1 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -38,11 +44,11 @@ const tornPaper = await getImage({ src: tornPaperSvg });
                 alt=""
                 class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 -translate-x-[20vw] h-50 md:h-105 rotate-10 pointer-events-none"
             />
-        </motion.div>
+        </MotionDiv>
     </div>
 
     <div class="absolute bottom-0 w-full h-full overflow-hidden">
-        <motion.div client:load
+        <MotionDiv client:load
             className="relative w-full h-full"
             initial={{ opacity: 0, y: 30, scale: 1.1 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -58,15 +64,15 @@ const tornPaper = await getImage({ src: tornPaperSvg });
                 alt=""
                 class="absolute bottom-0 right-0 translate-y-1/2 md:translate-y-0 h-50 md:h-105 -rotate-10 pointer-events-none"
             />
-        </motion.div>
+        </MotionDiv>
     </div>
 
-    <motion.h1 client:load 
+    <MotionH1 client:load 
         className="text-[45px]/[52px] md:text-8xl/[65px] mt-8 max-w-4xl relative z-10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
     >
         {translateLabels("hero.titleV2")}
-    </motion.h1>
+    </MotionH1>
 </section>
