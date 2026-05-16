@@ -1,5 +1,11 @@
 ---
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
@@ -28,7 +34,7 @@ const slides = [
 ];
 ---
 
-<motion.section className="flex flex-col items-center mb-16">
+<MotionSection className="flex flex-col items-center mb-16">
     <div id="embla-brands" class="w-full items-center justify-center p-8 overflow-hidden">
         <ul class="flex w-full z-10 select-none cursor-grab active:cursor-grabbing">
             {slides.map((slide, i) => (
@@ -42,7 +48,7 @@ const slides = [
             ))}
         </ul>
     </div>
-</motion.section>
+</MotionSection>
 
 <script>
     import EmblaCarousel from 'embla-carousel';
