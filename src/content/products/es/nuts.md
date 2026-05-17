@@ -15,7 +15,7 @@ weight: {
     "bulk": "a granel",
 }
 category: "Nuts"
-image: "/delieva/products/nuts.png"
+image: "/products/nuts.png"
 featured: true
 locale: "es"
 ---

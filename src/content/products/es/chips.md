@@ -10,7 +10,7 @@ weight: {
     "bulk": "a granel",
 }
 category: "Chips"
-image: "/delieva/products/chips.png"
+image: "/products/chips.png"
 featured: true
 locale: "es"
 ---

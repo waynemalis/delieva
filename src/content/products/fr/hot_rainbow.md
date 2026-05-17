@@ -15,7 +15,7 @@ weight: {
     "bulk": "en gros",
 }
 category: "Papas"
-image: "/delieva/products/hot_rainbow.webp"
+image: "/products/hot_rainbow.webp"
 featured: true
 locale: "fr"
 ---

@@ -9,7 +9,7 @@ weight: {
     "500g": "500g",
 }
 category: "Nuts"
-image: "/delieva/products/popcorn.webp"
+image: "/products/popcorn.webp"
 featured: true
 locale: "jp"
 ---
