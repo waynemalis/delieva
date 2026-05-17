@@ -47,10 +47,10 @@ const opportunitiesImage = await getImage({ src: opportunitiesPng });
         </p>
         <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-2 w-full">
           <input type="hidden" name="access_key" value="42a99781-b7a8-4ace-818f-988fb46c7640">
-          <input type="text" placeholder={translateLabels("contact.name")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
-          <input type="email" placeholder={translateLabels("contact.email")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
-          <input type="tel" placeholder={translateLabels("contact.phone")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
-          <textarea placeholder={translateLabels("contact.message")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] invalid:border-red-300 focus:ring-0" required></textarea>
+          <input type="text" name="name" placeholder={translateLabels("contact.name")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
+          <input type="email" name="email" placeholder={translateLabels("contact.email")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
+          <input type="tel" name="phone" placeholder={translateLabels("contact.phone")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
+          <textarea name="message" placeholder={translateLabels("contact.message")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] invalid:border-red-300 focus:ring-0" required></textarea>
           <button type="submit" class="group/btn w-full mt-8 px-6 py-3 bg-[#CDDC3980] items-center justify-center text-black font-google-sans-flex font-medium rounded-lg hover:text-white hover:bg-[#2BB95D] transition-colors flex space-x-2 cursor-pointer relative z-10">
             <span>{translateLabels("opportunities.contact")}</span>
             <Forward class="transition-transform duration-300 group-hover/btn:translate-x-1" size={20} />    
