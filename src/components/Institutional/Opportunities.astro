@@ -47,7 +47,6 @@ const opportunitiesImage = await getImage({ src: opportunitiesPng });
         </p>
         <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-2 w-full">
           <input type="hidden" name="access_key" value="42a99781-b7a8-4ace-818f-988fb46c7640">
-          <input type="hidden" name="redirect" value="/">
           <input type="text" name="name" placeholder={translateLabels("contact.name")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
           <input type="email" name="email" placeholder={translateLabels("contact.email")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
           <input type="tel" name="phone" placeholder={translateLabels("contact.phone")} class="w-full p-2 border-[#003B24] border-b-2 focus:outline-none focus:border-[#2BB95D] focus:ring-0 invalid:border-red-300" required/>
