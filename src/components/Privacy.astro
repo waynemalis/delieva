@@ -1,16 +1,16 @@
 ---
-import MotionDiv from "../../components/motion/MotionDiv";
-import MotionSection from "../../components/motion/MotionSection";
-import MotionH1 from "../../components/motion/MotionH1";
-import MotionP from "../../components/motion/MotionP";
-import MotionSpan from "../../components/motion/MotionSpan";
-import MotionImg from "../../components/motion/MotionImg";
+import MotionDiv from "./motion/MotionDiv.tsx";
+import MotionSection from "./motion/MotionSection.tsx";
+import MotionH1 from "./motion/MotionH1.tsx";
+import MotionP from "./motion/MotionP.tsx";
+import MotionSpan from "./motion/MotionSpan.tsx";
+import MotionImg from "./motion/MotionImg.tsx";
 
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { useTranslations } from "../../i18n/utils";
-import { languageList } from "../../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+import { languageList } from "../i18n/ui";
 import { getImage } from "astro:assets";
-import heroPng from "../../assets/hero.png";
+import heroPng from "../assets/hero.png";
 
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
