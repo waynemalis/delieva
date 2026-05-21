@@ -17,7 +17,7 @@ import Privacy from './Privacy.astro';
 
 <Layout>
   <Navbar />
-  <div id="home">
+  <div id="home" class="block" transition:name="home">
     <Hero />
     <History />
     <Mission />
@@ -27,14 +27,66 @@ import Privacy from './Privacy.astro';
     <Opportunities />
     <Map />
   </div>
-  <div id="privacy">
+  <div id="privacy" class="hidden" transition:name="privacy">
     <Privacy />
   </div>
-  <div id="terms">
+  <div id="terms" class="hidden" transition:name="terms">
     
   </div>
-  <div id="cookies">
+  <div id="cookies" class="hidden" transition:name="cookies">
     
   </div>
   <Footer />
 </Layout>
+
+<script>
+  const home = document.getElementById('home');
+  const privacy = document.getElementById('privacy');
+  const terms = document.getElementById('terms');
+  const cookies = document.getElementById('cookies');
+
+  const homeButton = document.getElementById('nav-inicio');
+  const privacyButton = document.getElementById('privacy-button');
+  const termsButton = document.getElementById('terms-button');
+  const cookiesButton = document.getElementById('cookies-button');
+
+  homeButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.remove('hidden');
+      home?.classList.add('block');
+      privacy?.classList.add('hidden');
+      privacy?.classList.remove('block');
+      terms?.classList.add('hidden');
+      terms?.classList.remove('block');
+      cookies?.classList.add('hidden');
+      cookies?.classList.remove('block');
+    });
+  });
+  
+  privacyButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.add('hidden');
+      home?.classList.remove('block');
+      privacy?.classList.remove('hidden');
+      privacy?.classList.add('block');
+    });
+  });
+  
+  termsButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.add('hidden');
+      home?.classList.remove('block');
+      terms?.classList.remove('hidden');
+      terms?.classList.add('block');
+    });
+  });
+  
+  cookiesButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.add('hidden');
+      home?.classList.remove('block');
+      cookies?.classList.remove('hidden');
+      cookies?.classList.add('block');
+    });
+  });
+</script>
