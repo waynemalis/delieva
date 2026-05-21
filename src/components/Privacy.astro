@@ -1,1 +1,17 @@
-<section></section>
+---
+import { ArrowUp, Copyright, MapPin, PhoneIncoming, Mail, Instagram, Facebook, Heart } from "lucide-astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../../i18n/utils";
+import { languageList } from "../../i18n/ui";
+import { Image } from "astro:assets";
+import delievaLogo from "../../assets/delieva.webp";
+
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(
+  currentLang as keyof typeof languageList
+);
+---
+
+<section>
+    <h1>{translateLabels("privacy.title")}</h1>
+</section>
