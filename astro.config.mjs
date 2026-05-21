@@ -12,6 +12,10 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.botanasdelieva.com',
+
+  redirects: {
+    "/": "/es/"
+  },
   
   vite: {
     plugins: [tailwindcss()],
