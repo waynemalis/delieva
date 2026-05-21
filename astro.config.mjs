@@ -7,6 +7,8 @@ import sitemap from '@astrojs/sitemap';
 
 import react from '@astrojs/react';
 
+import robotsTxt from "astro-robots-txt";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.botanasdelieva.com',
@@ -18,7 +20,7 @@ export default defineConfig({
     }
   },
 
-  integrations: [react(), sitemap()],
+  integrations: [react(), sitemap(), robotsTxt()],
 
   i18n: {
     defaultLocale: 'es',

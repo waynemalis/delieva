@@ -14,11 +14,13 @@
   "dependencies": {
     "@astrojs/react": "^5.0.3",
     "@astrojs/sitemap": "^3.7.2",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.1.8",
     "astro-leaflet": "^1.11.0",
+    "astro-robots-txt": "^1.0.0",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "framer-motion": "^12.38.0",

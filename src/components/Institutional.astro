@@ -13,6 +13,8 @@ import Map from './Institutional/Map.astro';
 import Footer from './Institutional/Footer.astro';
 import Carousel from './Institutional/Carousel.astro';
 import Privacy from './Privacy.astro';
+import Cookies from './Cookies.astro';
+import Terms from './Terms.astro';
 ---
 
 <Layout>
@@ -31,10 +33,10 @@ import Privacy from './Privacy.astro';
     <Privacy />
   </div>
   <div id="terms" class="hidden" transition:name="terms">
-    
+    <Terms />
   </div>
   <div id="cookies" class="hidden" transition:name="cookies">
-    
+    <Cookies />
   </div>
   <Footer />
 </Layout>
@@ -63,6 +65,8 @@ import Privacy from './Privacy.astro';
     document.startViewTransition(() => {
       home?.classList.replace('block', 'hidden');
       privacy?.classList.replace('hidden', 'block');
+      terms?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('block', 'hidden');
     });
   });
   
@@ -70,6 +74,8 @@ import Privacy from './Privacy.astro';
     document.startViewTransition(() => {
       home?.classList.replace('block', 'hidden');
       terms?.classList.replace('hidden', 'block');
+      privacy?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('block', 'hidden');
     });
   });
   
@@ -77,6 +83,8 @@ import Privacy from './Privacy.astro';
     document.startViewTransition(() => {
       home?.classList.replace('block', 'hidden');
       cookies?.classList.replace('hidden', 'block');
+      privacy?.classList.replace('block', 'hidden');
+      terms?.classList.replace('block', 'hidden');
     });
   });
 </script>

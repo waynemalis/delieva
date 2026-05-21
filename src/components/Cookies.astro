@@ -19,17 +19,17 @@ const translateLabels = useTranslations(
 
 const heroImage = await getImage({ src: heroPng });
 
-const privacyModules = import.meta.glob(
-  '../content/privacy/*.md'
+const cookiesModules = import.meta.glob(
+  '../content/cookies/*.md'
 );
 
-const path = `../content/privacy/${currentLang}.md`;
+const path = `../content/cookies/${currentLang}.md`;
 
-const module = await privacyModules[path]() as { default: any };
+const module = await cookiesModules[path]() as { default: any };
 const Content = module.default;
 ---
 
-<section id="privacy-hero" class="flex flex-col items-center text-center text-sm font-google-sans-flex text-white max-md:px-2 pt-20 pb-15 md:pt-20 md:pb-20 relative">
+<section id="cookies-hero" class="flex flex-col items-center text-center text-sm font-google-sans-flex text-white max-md:px-2 pt-20 pb-15 md:pt-20 md:pb-20 relative">
     <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${heroImage.src}')`}></div>
     <div class="absolute inset-0 bg-black/60"></div>
 
@@ -42,10 +42,10 @@ const Content = module.default;
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
     >
-        {translateLabels("footer.privacy")}
+        {translateLabels("footer.policy")}
     </MotionH1>
 </section>
-<section id="privacy-content" class="max-w-4xl mx-auto px-4 py-12">
+<section id="cookies-content" class="max-w-4xl mx-auto px-4 py-12">
     <article class="prose w-full">
         <Content />
     </article>
