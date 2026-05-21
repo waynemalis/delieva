@@ -52,41 +52,31 @@ import Privacy from './Privacy.astro';
 
   homeButton?.addEventListener('click', () => {
     document.startViewTransition(() => {
-      home?.classList.remove('hidden');
-      home?.classList.add('block');
-      privacy?.classList.add('hidden');
-      privacy?.classList.remove('block');
-      terms?.classList.add('hidden');
-      terms?.classList.remove('block');
-      cookies?.classList.add('hidden');
-      cookies?.classList.remove('block');
+      home?.classList.replace('hidden', 'block');
+      privacy?.classList.replace('block', 'hidden');
+      terms?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('block', 'hidden');
     });
   });
   
   privacyButton?.addEventListener('click', () => {
     document.startViewTransition(() => {
-      home?.classList.add('hidden');
-      home?.classList.remove('block');
-      privacy?.classList.remove('hidden');
-      privacy?.classList.add('block');
+      home?.classList.replace('block', 'hidden');
+      privacy?.classList.replace('hidden', 'block');
     });
   });
   
   termsButton?.addEventListener('click', () => {
     document.startViewTransition(() => {
-      home?.classList.add('hidden');
-      home?.classList.remove('block');
-      terms?.classList.remove('hidden');
-      terms?.classList.add('block');
+      home?.classList.replace('block', 'hidden');
+      terms?.classList.replace('hidden', 'block');
     });
   });
   
   cookiesButton?.addEventListener('click', () => {
     document.startViewTransition(() => {
-      home?.classList.add('hidden');
-      home?.classList.remove('block');
-      cookies?.classList.remove('hidden');
-      cookies?.classList.add('block');
+      home?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('hidden', 'block');
     });
   });
 </script>
