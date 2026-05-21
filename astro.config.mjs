@@ -12,10 +12,6 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.botanasdelieva.com',
-
-  redirects: {
-    "/": "/es/"
-  },
   
   vite: {
     plugins: [tailwindcss()],
@@ -28,10 +24,9 @@ export default defineConfig({
 
   i18n: {
     defaultLocale: 'es',
-    locales: ['es', 'en', 'jp', 'fr'],
+    locales: ['es', 'en', 'ja', 'fr'],
     routing: {
-      prefixDefaultLocale: true,
-      redirectToDefaultLocale: false
+      prefixDefaultLocale: false,
     },
   },
 });

@@ -1,7 +1,7 @@
 export const languageList = {
     es: "Español",
     en: "English",
-    jp: "日本語",
+    ja: "日本語",
     fr: "Français"
 }
 
@@ -173,7 +173,7 @@ export const labels = {
         "logistic.shipping": "National and International Shipping",
         "shipping.content": "If you live in another part of Mexico or the world, don't worry! Delieva Snacks reaches everywhere. Contact us formally.",
     },
-    jp: {
+    ja: {
         "site.title": "Botanas Delieva",
         
         "main.company": "私たちについて",
