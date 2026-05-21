@@ -11,23 +11,90 @@ import Catalog from './Brands/Catalog.astro';
 import Logistics from './Brands/Logistics.astro';
 import Map from './Brands/Map.astro';
 import Footer from './Brands/Footer.astro';
-
+import Privacy from './Privacy.astro';
+import Cookies from './Cookies.astro';
+import Terms from './Terms.astro';
 ---
 
 <Layout>
   <div class="bg-white min-h-screen">
     <Navbar />
-    <Hero />
-    <BrandsList />
-    <Featured />
-    <Catalog />
-    <Quality />
-    <Logistics />
-    <Map />
+    <div id="home" class="block" transition:name="home">
+      <Hero />
+      <BrandsList />
+      <Featured />
+      <Catalog />
+      <Quality />
+      <Logistics />
+      <Map />
+    </div>
+    <div id="privacy" class="hidden" transition:name="privacy">
+    <Privacy />
+  </div>
+  <div id="terms" class="hidden" transition:name="terms">
+    <Terms />
+  </div>
+  <div id="cookies" class="hidden" transition:name="cookies">
+    <Cookies />
+  </div>
     <Footer />
   </div>
 </Layout>
 
 <script>
-  // bg-[#062121]
+  const home = document.getElementById('home');
+  const privacy = document.getElementById('privacy');
+  const terms = document.getElementById('terms');
+  const cookies = document.getElementById('cookies');
+
+  const homeButton = document.getElementById('nav-inicio');
+  const mobileHomeButton = document.getElementById('mobile-home');
+  const privacyButton = document.getElementById('privacy-button');
+  const termsButton = document.getElementById('terms-button');
+  const cookiesButton = document.getElementById('cookies-button');
+
+  homeButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.replace('hidden', 'block');
+      privacy?.classList.replace('block', 'hidden');
+      terms?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('block', 'hidden');
+    });
+  });
+  
+  mobileHomeButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.replace('hidden', 'block');
+      privacy?.classList.replace('block', 'hidden');
+      terms?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('block', 'hidden');
+    });
+  });
+  
+  privacyButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.replace('block', 'hidden');
+      privacy?.classList.replace('hidden', 'block');
+      terms?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('block', 'hidden');
+    });
+  });
+  
+  termsButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.replace('block', 'hidden');
+      terms?.classList.replace('hidden', 'block');
+      privacy?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('block', 'hidden');
+    });
+  });
+  
+  cookiesButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('hidden', 'block');
+      privacy?.classList.replace('block', 'hidden');
+      terms?.classList.replace('block', 'hidden');
+    });
+  });
 </script>

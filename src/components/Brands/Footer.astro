@@ -54,15 +54,15 @@ const translateLabels = useTranslations(currentLang as keyof typeof languageList
         <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0 border-t border-white/20 pt-6">
             <div class="flex flex-col md:flex-row items-center gap-6 text-white">
                 <div class="flex flex-row items-center gap-2"><Copyright size={14} /> {new Date().getFullYear()} Delieva. {translateLabels("footer.rights")}</div>
-                <a class="group flex flex-row items-center gap-2 relative" href={getRelativeLocaleUrl(currentLang, "/privacy")}>
+                <a id="privacy-button" class="group flex flex-row items-center gap-2 relative" href="#">
                     <span>{translateLabels("footer.privacy")}</span>
                     <div class="absolute w-full md:w-0 h-0.5 bg-[#AED42E] bottom-0 left-0 transition-all duration-300 group-hover:w-full"></div>
                 </a>
-                <a class="group flex flex-row items-center gap-2 relative" href={getRelativeLocaleUrl(currentLang, "/terms")}>
+                <a id="terms-button" class="group flex flex-row items-center gap-2 relative" href="#">
                     <span>{translateLabels("footer.terms")}</span>
                     <div class="absolute w-full md:w-0 h-0.5 bg-[#AED42E] bottom-0 left-0 transition-all duration-300 group-hover:w-full"></div>
                 </a>
-                <a class="group flex flex-row items-center gap-2 relative" href={getRelativeLocaleUrl(currentLang, "/cookies")}>
+                <a id="cookies-button" class="group flex flex-row items-center gap-2 relative" href="#">
                     <span>{translateLabels("footer.policy")}</span>
                     <div class="absolute w-full md:w-0 h-0.5 bg-[#AED42E] bottom-0 left-0 transition-all duration-300 group-hover:w-full"></div>
                 </a>

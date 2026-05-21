@@ -48,11 +48,21 @@ import Terms from './Terms.astro';
   const cookies = document.getElementById('cookies');
 
   const homeButton = document.getElementById('nav-inicio');
+  const mobileHomeButton = document.getElementById('mobile-home');
   const privacyButton = document.getElementById('privacy-button');
   const termsButton = document.getElementById('terms-button');
   const cookiesButton = document.getElementById('cookies-button');
 
   homeButton?.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      home?.classList.replace('hidden', 'block');
+      privacy?.classList.replace('block', 'hidden');
+      terms?.classList.replace('block', 'hidden');
+      cookies?.classList.replace('block', 'hidden');
+    });
+  });
+  
+  mobileHomeButton?.addEventListener('click', () => {
     document.startViewTransition(() => {
       home?.classList.replace('hidden', 'block');
       privacy?.classList.replace('block', 'hidden');
