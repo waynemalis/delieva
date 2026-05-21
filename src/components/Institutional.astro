@@ -12,17 +12,29 @@ import Opportunities from './Institutional/Opportunities.astro';
 import Map from './Institutional/Map.astro';
 import Footer from './Institutional/Footer.astro';
 import Carousel from './Institutional/Carousel.astro';
+import Privacy from './Privacy.astro';
 ---
 
 <Layout>
   <Navbar />
-  <Hero />
-  <History />
-  <Mission />
-  <Quality />
-  <Carousel />
-  <Impact />
-  <Opportunities />
-  <Map />
+  <div id="home">
+    <Hero />
+    <History />
+    <Mission />
+    <Quality />
+    <Carousel />
+    <Impact />
+    <Opportunities />
+    <Map />
+  </div>
+  <div id="privacy">
+    <Privacy />
+  </div>
+  <div id="terms">
+    
+  </div>
+  <div id="cookies">
+    
+  </div>
   <Footer />
 </Layout>
