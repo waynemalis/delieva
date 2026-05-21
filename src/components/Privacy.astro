@@ -1,17 +1,41 @@
 ---
-import { ArrowUp, Copyright, MapPin, PhoneIncoming, Mail, Instagram, Facebook, Heart } from "lucide-astro";
+import MotionDiv from "../../components/motion/MotionDiv";
+import MotionSection from "../../components/motion/MotionSection";
+import MotionH1 from "../../components/motion/MotionH1";
+import MotionP from "../../components/motion/MotionP";
+import MotionSpan from "../../components/motion/MotionSpan";
+import MotionImg from "../../components/motion/MotionImg";
+
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { useTranslations } from "../i18n/utils";
-import { languageList } from "../i18n/ui";
-import { Image } from "astro:assets";
-import delievaLogo from "../assets/delieva.webp";
+import { useTranslations } from "../../i18n/utils";
+import { languageList } from "../../i18n/ui";
+import { getImage } from "astro:assets";
+import heroPng from "../../assets/hero.png";
 
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
   currentLang as keyof typeof languageList
 );
+
+const heroImage = await getImage({ src: heroPng });
 ---
 
-<section>
+<section id="privacy-hero" class="flex flex-col items-center text-center text-sm font-google-sans-flex text-white max-md:px-2 pt-30 pb-20 md:pt-40 md:pb-40 relative">
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${heroImage.src}')`}></div>
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <!-- <div class="flex flex-wrap items-center justify-center px-4 py-2 rounded-full border border-slate-400 relative z-10">
+        <p>{translateLabels("hero.slogan")}</p>
+    </div> -->
+    <MotionH1 client:load 
+        className="text-[45px]/[52px] md:text-8xl/[80px] mt-6 max-w-4xl relative title-institutional z-10"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+    >
+        {translateLabels("footer.privacy")}
+    </MotionH1>
+</section>
+<section id="privacy-content">
     <h1>{translateLabels("footer.privacy")}</h1>
 </section>
