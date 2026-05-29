@@ -13,6 +13,7 @@ import { languageList } from "../../i18n/ui";
 import { Image } from "astro:assets";
 import delievaLogo from "../../assets/delieva.webp";
 import tornPaper from "../../assets/tornPaperFooter.svg";
+import chihuahuaMarketLogo from "../../assets/chihuahua_market.png";
 
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(currentLang as keyof typeof languageList);
@@ -27,11 +28,17 @@ const translateLabels = useTranslations(currentLang as keyof typeof languageList
     id="impact"
 >
     <div class="relative flex flex-col gap-6 px-4 text-[14px] md:text-[16px] md:px-32 py-8">
-        <Image src={tornPaper} alt="" class="absolute left-0 top-0 -translate-y-2/5 w-full pointer-events-none z-1" />
+        <Image src={tornPaper} alt="" class="absolute left-0 top-0 -translate-y-2/5 w-full pointer-events-none z-0" />
         <div class="flex flex-row justify-between items-center w-full h-full">
-            <a href={getRelativeLocaleUrl(currentLang, "/")}>
-                <Image src={delievaLogo} alt="Delieva Logo" width={100} height={Math.round(delievaLogo.height * (100 / delievaLogo.width))}/>
-            </a>
+            <div class="flex flex-row items-center gap-6">
+                <a href={getRelativeLocaleUrl(currentLang, "/")}>
+                    <Image src={delievaLogo} alt="Delieva Logo" width={100} height={Math.round(delievaLogo.height * (100 / delievaLogo.width))}/>
+                </a>
+                <a class="relative">
+                    <Image src={chihuahuaMarketLogo} id="shineImage" class="absolute inset-0 z-10" alt="Chihuahua Market Logo" width={84} height={Math.round(chihuahuaMarketLogo.height * (84 / chihuahuaMarketLogo.width))}/>
+                    <Image src={chihuahuaMarketLogo} id="ChihuahuaMarketLogo" class="relative z-0" alt="Chihuahua Market Logo" width={84} height={Math.round(chihuahuaMarketLogo.height * (84 / chihuahuaMarketLogo.width))}/>
+                </a>
+            </div>
             <a href="#hero" class="group/btn w-auto px-3 py-3 bg-[#AED42E] items-center justify-between text-black font-google-sans-flex font-medium rounded-lg hover:text-white hover:bg-[#2BB95D] transition-colors flex space-x-2 cursor-pointer relative z-10">
                 <span>{translateLabels("footer.return")}</span>
                 <ArrowUp class="transition-transform duration-300 group-hover/btn:-translate-y-1" size={20} />    

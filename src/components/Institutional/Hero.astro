@@ -10,7 +10,9 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languageList } from "../../i18n/ui";
 import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import heroPng from "../../assets/hero.png";
+import chihuahuaMarketLogo from "../../assets/chihuahua_market.png";
 
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
@@ -74,4 +76,9 @@ const heroImage = await getImage({ src: heroPng });
             </MotionDiv>
         </a>
     </MotionDiv>
+
+    <a class="absolute md:bottom-[10%] bottom-[2px] md:right-[10%] right-[2px] scale-75 md:scale-100">
+        <Image src={chihuahuaMarketLogo} id="shineImage" class="absolute inset-0 z-10" alt="Chihuahua Market Logo" width={120} height={Math.round(chihuahuaMarketLogo.height * (120 / chihuahuaMarketLogo.width))}/>
+        <Image src={chihuahuaMarketLogo} id="ChihuahuaMarketLogo" class="relative z-0" alt="Chihuahua Market Logo" width={120} height={Math.round(chihuahuaMarketLogo.height * (120 / chihuahuaMarketLogo.width))}/>
+    </a>
 </section>
