@@ -75,20 +75,20 @@
   );
   -webkit-mask-size: 300% 300%;
   mask-size: 300% 300%;
-  -webkit-mask-position: -200% 200%;
-  mask-position: -200% 200%;
+  -webkit-mask-position: -120% 120%;
+  mask-position: -120% 120%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  animation: shine 6s ease-in-out 0.1s infinite;
+  animation: shine 2.25s ease-in-out 0s infinite;
 }
 
 @keyframes shine {
   0%, 5% {
-    -webkit-mask-position: -200% -200%;
-    mask-position: -200% -200%;
+    -webkit-mask-position: -120% -120%;
+    mask-position: -120% -120%;
   }
   95%, 100% {
-    -webkit-mask-position: 200% 200%;
-    mask-position: 200% 200%;
+    -webkit-mask-position: 120% 120%;
+    mask-position: 120% 120%;
   }
 }
